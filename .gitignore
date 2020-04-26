@@ -1,0 +1,9 @@
+
+/.idea/
+/Backend/target/
+/Backend/spring-boot-rest-mongodb.iml
+/node_modules/
+/target/
+
+/LawFirmSystem.iml
+/Backend/Backend.iml

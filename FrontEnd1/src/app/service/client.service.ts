@@ -1,0 +1,95 @@
+import { Injectable } from '@angular/core';
+import {environment} from "../../environments/environment";
+import {Client} from "../model/Client";
+import pako from "pako";
+import {map, tap} from "rxjs/internal/operators";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+
+
+const URL ='/ClientController'
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ClientService {
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
+    })
+  };
+
+  private clientDetails : any;
+
+  constructor(private http:HttpClient) { }
+
+  addCustomer(client: Client) {
+    return this.http.post<Client>(environment.backend_url + URL + '/addClient',client);
+  }
+
+  searchClientDetails(searchClientNIC: String) {
+    return this.http.get<Client>(environment.backend_url +  URL + '/client/' + searchClientNIC);
+  }
+
+  updateClientDetails(UpdateClientDetails: Client) {
+    return this.http.post<Client>(environment.backend_url + URL + '/updateClient',UpdateClientDetails);
+  }
+
+
+  // init(searchClientNIC: String) {
+  //   return this.searchClientDetails(searchClientNIC).subscribe(res => {
+  //     try {
+  //       if (res) {
+  //         this.clientDetails = res;
+  //         console.log(this.clientDetails);
+  //       }
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+  //   });
+  // }
+
+  decode(encodedStr: any) {
+    let gzip = encodedStr;
+    let byteArray = new Uint8Array(gzip);
+    let inflatedStr = pako.inflate(byteArray, {to: 'string'});
+    return JSON.parse(inflatedStr);
+  }
+
+  // searchClientDetails(searchClientNIC: String) : Observable<any>{
+  //   try {
+  //     return this.http.get(environment.backend_url +  URL + '/client/' + searchClientNIC).pipe(map(
+  //       res => this.decode(res)
+  //     ), tap(res => res));
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // }
+
+  // CusReport() {
+  //
+  //   return this.http.get<Array<CustomerReportDTO>>(environment.backend_url + URL + '/getCusDetail');
+  //
+  // }
+
+  // deleteCustomer(cusID: number) {
+  //   return this.http.delete<number>(environment.backend_url + URL + '/deleteCustomer/' + cusID);
+  // }
+  //
+  // searchCustomerPoints(searchCustomerID: String) {
+  //
+  //   return this.http.get<Customer>(environment.backend_url +  URL + '/searchByCustomerID/' + searchCustomerID);
+  // }
+  //
+  // updateLoyaltyPoints(updateLoyaltyPoints: Customer) {
+  //   return this.http.post<Customer>(environment.backend_url + URL + '/updateLoyaltyPoints',updateLoyaltyPoints);
+  // }
+
+  // printCustomerReport(CustomerReport: Array<CustomerReportDTO>) {
+  //   return this.http.post<String>(environment.backend_url + URL + '/printCustomerReport/',CustomerReport);
+  //
+  // }
+}
+
+

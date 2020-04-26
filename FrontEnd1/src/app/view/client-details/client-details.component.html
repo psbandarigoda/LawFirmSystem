@@ -1,0 +1,315 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4 class="card-title"><b><b>Customer Details</b></b>
+
+          </h4>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="form" name="form">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label class="bmd-label-floating"> Client NIC </label>
+                  <input [(ngModel)]="client.nic"
+                         [ngClass]="{'is-invalid':form.get('nic').touched && form.get('nic').invalid}"
+                         class="form-control" formControlName="nic" maxlength="12"
+                         minlength="2" name="nic"
+                         type="text">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Username</label>
+                  <input [(ngModel)]="client.userName"
+                         [ngClass]="{'is-invalid':form.get('userName').touched && form.get('userName').invalid}"
+                         class="form-control" formControlName="userName" maxlength="12"
+                         minlength="2" name="userName"
+                         type="text">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Email address</label>
+                  <input [(ngModel)]="client.email"
+                         [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid }"
+                         class="form-control" formControlName="email"
+                         name="email"
+                         type="email">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Fist Name</label>
+                  <input [(ngModel)]="client.firstName"
+                         [ngClass]="{'is-invalid':form.get('firstName').touched && form.get('firstName').invalid}"
+                         class="form-control" formControlName="firstName"
+                         name="firstName"
+                         type="text">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Last Name</label>
+                  <input [(ngModel)]="client.lastName"
+                         [ngClass]="{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}"
+                         class="form-control" formControlName="lastName"
+                         name="lastName"
+                         type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Adress</label>
+                  <input [(ngModel)]="client.address"
+                         [ngClass]="{'is-invalid':form.get('address').touched && form.get('address').invalid}"
+                         class="form-control" formControlName="address"
+                         name="address"
+                         type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Contact No</label>
+                  <input [(ngModel)]="client.phone"
+                         [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}"
+                         class="form-control" formControlName="phone" name="phone"
+                         pattern="[0-9]{10}"
+                         type="tel">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Country</label>
+                  <input [(ngModel)]="client.country"
+                         [ngClass]="{'is-invalid':form.get('country').touched && form.get('country').invalid}"
+                         class="form-control" formControlName="country" maxlength="12"
+                         minlength="2" name="country"
+                         type="text">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Postal Code</label>
+                  <input [(ngModel)]="client.postal"
+                         [ngClass]="{'is-invalid':form.get('postal').touched && form.get('postal').invalid}"
+                         class="form-control" formControlName="postal" maxlength="12"
+                         minlength="2" name="postal"
+                         type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>About Client</label>
+                  <div class="form-group">
+                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two
+                      seat Lambo.</label>
+                    <textarea [(ngModel)]="client.aboutCus"
+                              [ngClass]="{'is-invalid':form.get('aboutCus').touched && form.get('aboutCus').invalid }"
+                              class="form-control" formControlName="aboutCus"
+                              name="aboutCus"
+                              rows="5"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button (click)="addClient()" class="btn btn-rose pull-right" type="submit">Add New Client</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br><br>
+
+<!---search Client--->
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header card-header-info card-header-icon">
+      <div class="card-icon">
+        <i class="fas fa-search"></i>
+      </div>
+      <h4 class="card-title">Search Client</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div style="margin-left: 35%; width: 50%">
+          <div class="form-group">
+            <label class="bmd-label-floating">Search By Name or NIC</label>
+            <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"
+                   type="text">
+          </div>
+        </div>
+        <div style="margin-left: 85%; margin-top: -5%">
+          <button class="btn btn-info pull-right" type="submit">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Search-->
+
+
+<br><br>
+
+<!--Start Edit -->
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-info">
+            <div class="card-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <h4 class="card-title">View & Edit Client -
+              <small class="category">Complete your profile</small>
+            </h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formEdit" name="formEdit">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label class="bmd-label-floating"> Client NIC </label>
+                    <input [(ngModel)]="clientEdit.nic" [ngClass]="{'is-invalid':formEdit.get('nic').touched && formEdit.get('nic').invalid}"
+                           class="form-control"
+                           disabled formControlName="nic" maxlength="12"
+                           minlength="2" name="nic"
+                           type="text" value="{{nic1}}">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Username</label>
+                    <input [(ngModel)]="clientEdit.userName" [ngClass]="{'is-invalid':formEdit.get('userName').touched && formEdit.get('userName').invalid}"
+                           class="form-control"
+                           formControlName="userName" maxlength="12" minlength="2"
+                           name="userName" type="text"
+                           value="{{userName1}}">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email address</label>
+                    <input [(ngModel)]="clientEdit.email" [ngClass]="{'is-invalid':formEdit.get('email').touched && formEdit.get('email').invalid }"
+                           class="form-control"
+                           formControlName="email" name="email"
+                           type="email"
+                           value="{{email1}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Fist Name</label>
+                    <input [(ngModel)]="clientEdit.firstName" [ngClass]="{'is-invalid':formEdit.get('firstName').touched && formEdit.get('firstName').invalid}"
+                           class="form-control"
+                           formControlName="firstName" name="firstName"
+                           type="text"
+                           value="{{firstName1}}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Last Name</label>
+                    <input [(ngModel)]="clientEdit.lastName" [ngClass]="{'is-invalid':formEdit.get('lastName').touched && formEdit.get('lastName').invalid}"
+                           class="form-control"
+                           formControlName="lastName" name="lastName"
+                           type="text"
+                           value="{{lastName1}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Adress</label>
+                    <input [(ngModel)]="clientEdit.address" [ngClass]="{'is-invalid':formEdit.get('address').touched && formEdit.get('address').invalid}"
+                           class="form-control"
+                           formControlName="address" name="address"
+                           type="text"
+                           value="{{address1}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Contact No</label>
+                    <input [(ngModel)]="clientEdit.phone" [ngClass]="{'is-invalid':formEdit.get('phone').touched && formEdit.get('phone').invalid}"
+                           class="form-control"
+                           formControlName="phone" name="phone" pattern="[0-9]{10}"
+                           type="tel"
+                           value="{{phone1}}">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Country</label>
+                    <input [(ngModel)]="clientEdit.country" [ngClass]="{'is-invalid':formEdit.get('country').touched && formEdit.get('country').invalid}"
+                           class="form-control"
+                           formControlName="country" maxlength="12" minlength="2"
+                           name="country" type="text"
+                           value="{{country1}}">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Postal Code</label>
+                    <input [(ngModel)]="clientEdit.postal" [ngClass]="{'is-invalid':formEdit.get('postal').touched && formEdit.get('postal').invalid}"
+                           class="form-control"
+                           formControlName="postal" maxlength="12" minlength="2"
+                           name="postal" type="text"
+                           value="{{postal1}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Client</label>
+                    <div class="form-group">
+                      <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two
+                        seat Lambo.</label>
+                      <textarea [(ngModel)]="clientEdit.aboutCus" [ngClass]="{'is-invalid':formEdit.get('aboutCus').touched && formEdit.get('aboutCus').invalid }"
+                                class="form-control"
+                                formControlName="aboutCus" name="aboutCus"
+                                rows="5"
+                                value="{{aboutCus1}}"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-rose pull-right" type="submit" (click)="updateClient()">Update Client</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

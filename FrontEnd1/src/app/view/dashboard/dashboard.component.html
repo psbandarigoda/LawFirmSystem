@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <!-- your content here -->
+
+  <div class="alert alert-with-icon" data-notify="container">
+    <i class="fas fa-envelope" data-notify="icon"></i>
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+      <i class="material-icons">close</i>
+    </button>
+    <span data-notify="message" style="margin-left: 75%"> {{curDate | date:'dd-MM-yyyy'}}&nbsp;&nbsp;  {{ time | date: 'hh:mm:ss a' }}</span>
+  </div>
+
+</div>
+
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="header text-center">
+      <h4 class="title">FullCalendar</h4>
+      <p class="category" style="font-size: large">A Day in the Life of
+        <a target="_blank" href="https://fullcalendar.io/"> </a> a Lawyer
+        <a href="https://fullcalendar.io/docs/" target="_blank"> </a>
+      </p>
+    </div>
+    <div class="row" style="margin-top: -20px">
+      <div class="col-md-10 ml-auto mr-auto">
+        <div class="card card-calendar">
+          <div class="card-body ">
+            <div id="fullCalendar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

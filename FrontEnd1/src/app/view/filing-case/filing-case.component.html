@@ -1,0 +1,210 @@
+<!---search Client--->
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header card-header-info card-header-icon">
+      <div class="card-icon">
+        <i class="fas fa-search"></i>
+      </div>
+      <h4 class="card-title">Search Client</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div style="margin-left: 35%; width: 50%">
+          <div class="form-group">
+            <label class="bmd-label-floating">Search By Name or NIC</label>
+            <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"
+                   type="text">
+          </div>
+        </div>
+        <div style="margin-left: 85%; margin-top: -5%">
+          <button class="btn btn-info pull-right" type="submit">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Search-->
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-profile" style="padding-bottom: 125px">
+      <div class="card-avatar">
+        <a href="#pablo">
+          <img class="img" src="../../assets/img/faces/marc.jpg"/>
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category text-gray">{{nic1}}</h6>
+        <h4 class="card-title">{{firstName1}} {{lastName1}}</h4>
+        <p class="card-description">
+          {{aboutCus1}}
+        </p>
+        <a class="btn btn-rose btn-round" href="#pablo">Cancel</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-info">
+        <div class="card-icon">
+          <i class="fas fa-user"></i>
+        </div>
+        <h4 class="card-title"><b><b>Case Details</b></b>
+
+        </h4>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="form" name="form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating"> Case No </label>
+                <input [(ngModel)]="case.caseNo"
+                       [ngClass]="{'is-invalid':form.get('caseNo').touched && form.get('caseNo').invalid}"
+                       class="form-control" formControlName="caseNo" maxlength="12"
+                       minlength="2" name="caseNo"
+                       type="text">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="col-lg-5 col-md-6 col-sm-3">
+                  <select class="selectpicker" data-size="7" title="Single Select">
+                    <option disabled selected>Case Type</option>
+                    <option value="Curfew Law">Curfew Law</option>
+                    <option value="Road Law">Road Law</option>
+                    <option value="Civil Law">Civil Law</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Title</label>
+                <input [(ngModel)]="case.title"
+                       [ngClass]="{'is-invalid':form.get('title').touched && form.get('title').invalid}"
+                       class="form-control" formControlName="title"
+                       name="firstName"
+                       type="text">
+              </div>
+            </div>
+<!--            <div class="col-md-6">-->
+<!--              <div class="form-group">-->
+<!--                <label class="bmd-label-floating">Last Name</label>-->
+<!--&lt;!&ndash;                <input [(ngModel)]="client.lastName"&ndash;&gt;-->
+<!--&lt;!&ndash;                       [ngClass]="{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       class="form-control" formControlName="lastName"&ndash;&gt;-->
+<!--&lt;!&ndash;                       name="lastName"&ndash;&gt;-->
+<!--&lt;!&ndash;                       type="text">&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-4">-->
+<!--              <div class="form-group">-->
+<!--                <label class="bmd-label-floating">Contact No</label>-->
+<!--&lt;!&ndash;                <input [(ngModel)]="client.phone"&ndash;&gt;-->
+<!--&lt;!&ndash;                       [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       class="form-control" formControlName="phone" name="phone"&ndash;&gt;-->
+<!--&lt;!&ndash;                       pattern="[0-9]{10}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       type="tel">&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--              <div class="form-group">-->
+<!--                <label class="bmd-label-floating">Country</label>-->
+<!--&lt;!&ndash;                <input [(ngModel)]="client.country"&ndash;&gt;-->
+<!--&lt;!&ndash;                       [ngClass]="{'is-invalid':form.get('country').touched && form.get('country').invalid}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       class="form-control" formControlName="country" maxlength="12"&ndash;&gt;-->
+<!--&lt;!&ndash;                       minlength="2" name="country"&ndash;&gt;-->
+<!--&lt;!&ndash;                       type="text">&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--              <div class="form-group">-->
+<!--                <label class="bmd-label-floating">Postal Code</label>-->
+<!--&lt;!&ndash;                <input [(ngModel)]="client.postal"&ndash;&gt;-->
+<!--&lt;!&ndash;                       [ngClass]="{'is-invalid':form.get('postal').touched && form.get('postal').invalid}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       class="form-control" formControlName="postal" maxlength="12"&ndash;&gt;-->
+<!--&lt;!&ndash;                       minlength="2" name="postal"&ndash;&gt;-->
+<!--&lt;!&ndash;                       type="text">&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Case Description</label>
+                <div class="form-group">
+                  <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two
+                    seat Lambo.</label>
+                  <textarea [(ngModel)]="case.description"
+                            [ngClass]="{'is-invalid':form.get('description').touched && form.get('description').invalid }"
+                            class="form-control" formControlName="description"
+                            name="aboutCus"
+                            rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button (click)="addCase()" class="btn btn-rose pull-right" type="submit">Add New Case</button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MULTIPLE images upload   -->
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div (fileOver)="fileOverBase($event)"
+           [ngClass]="{'drop-file-over': hasBaseDropZoneOver}"
+           [uploader]="uploader"
+           class="area fileinput-preview fileinput-exists thumbnail" multiple
+           ng2FileDrop>
+        <div id="dropZone">Drop files here</div>
+      </div>
+
+      <input [uploader]="uploader" multiple ng2FileSelect type="file"/>
+
+      <button (click)="upload()">Upload files</button>
+
+      <h2>Your files: {{ uploader?.queue?.length }}</h2>
+      <ul>
+        <li *ngFor="let item of uploader.queue">
+          {{ item?.file?.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<!--  <div class="col-md-4 col-sm-4">-->
+<!--    <h4 class="title">Regular Image</h4>-->
+<!--    <div class="fileinput fileinput-new text-center" data-provides="fileinput">-->
+<!--      <div class="fileinput-new thumbnail">-->
+<!--        <img alt="..." src="../../assets/img/image_placeholder.jpg">-->
+<!--      </div>-->
+<!--      <div class="fileinput-preview fileinput-exists thumbnail"></div>-->
+<!--      <div>-->
+<!--                          <span class="btn btn-rose btn-round btn-file">-->
+<!--                            <span class="fileinput-new">Select image</span>-->
+<!--                            <span class="fileinput-exists">Change</span>-->
+<!--                            <input name="..." type="file"/>-->
+<!--                          </span>-->
+<!--        <a class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput" href="#pablo"><i-->
+<!--          class="fa fa-times"></i> Remove</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
