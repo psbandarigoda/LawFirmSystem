@@ -15,4 +15,6 @@ public interface ClientRepository extends MongoRepository<Client, Long> {
     @Query("{ 'nic' : ?0 }")
     Client findByNIC(String regexp);
 
+//    Client findByNIC( String nic );
+
 }

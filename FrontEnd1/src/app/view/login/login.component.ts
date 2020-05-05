@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
     this.returnUrlCla = this.route.snapshot.queryParams['returnUrlCla'] || 'clerkMain/clerk';
   }
 
-  login(){
-    if(this.loginForm.value.username.toString() === "kawya@gmail.com"){
+  login() {
+    if (this.loginForm.value.username.toString() === 'kawya@gmail.com') {
       this.router.navigate([this.returnUrlLaw]);
-    }else if(this.loginForm.value.username.toString() === "kdu@gmail.com"){
+    } else if (this.loginForm.value.username.toString() === 'kdu@gmail.com') {
       this.router.navigate([this.returnUrlCla]);
-    }else {
-      console.log("Error User");
+    } else {
+      console.log('Error User');
       alert('Not Authorised Person');
     }
   }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
-import {Client} from "../model/Client";
-import pako from "pako";
-import {map, tap} from "rxjs/internal/operators";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {environment} from '../../environments/environment';
+import {Client} from '../model/Client';
+import pako from 'pako';
+import {map, tap} from 'rxjs/internal/operators';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 
-const URL ='/ClientController'
+const URL = '/ClientController';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +16,25 @@ export class ClientService {
 
   public httpOptions = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     })
   };
 
-  private clientDetails : any;
+  private clientDetails: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   addCustomer(client: Client) {
-    return this.http.post<Client>(environment.backend_url + URL + '/addClient',client);
+    return this.http.post<Client>(environment.backend_url + URL + '/addClient', client);
   }
 
+  // tslint:disable-next-line:ban-types
   searchClientDetails(searchClientNIC: String) {
     return this.http.get<Client>(environment.backend_url +  URL + '/client/' + searchClientNIC);
   }
 
   updateClientDetails(UpdateClientDetails: Client) {
-    return this.http.post<Client>(environment.backend_url + URL + '/updateClient',UpdateClientDetails);
+    return this.http.post<Client>(environment.backend_url + URL + '/updateClient', UpdateClientDetails);
   }
 
 
@@ -51,9 +52,9 @@ export class ClientService {
   // }
 
   decode(encodedStr: any) {
-    let gzip = encodedStr;
-    let byteArray = new Uint8Array(gzip);
-    let inflatedStr = pako.inflate(byteArray, {to: 'string'});
+    const gzip = encodedStr;
+    const byteArray = new Uint8Array(gzip);
+    const inflatedStr = pako.inflate(byteArray, {to: 'string'});
     return JSON.parse(inflatedStr);
   }
 
