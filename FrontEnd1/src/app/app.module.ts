@@ -14,6 +14,7 @@ import {DashboardComponent} from "./view/dashboard/dashboard.component";
 import { FilingCaseComponent } from './view/filing-case/filing-case.component';
 import {LoginComponent} from "./view/login/login.component";
 import {FileUploadModule} from "ng2-file-upload";
+import { TemplatesComponent } from './view/templates/templates.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -27,7 +28,8 @@ import {FileUploadModule} from "ng2-file-upload";
     CustomerOrderComponent,
     DashboardComponent,
     FilingCaseComponent,
-    LoginComponent
+    LoginComponent,
+    TemplatesComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {DashboardComponent} from './view/dashboard/dashboard.component';
 import {ClientDetailsComponent} from './view/client-details/client-details.component';
 import {FilingCaseComponent} from './view/filing-case/filing-case.component';
 import {CustomerOrderComponent} from './view/customer-order/customer-order.component';
+import {TemplatesComponent} from './view/templates/templates.component';
 
 
 
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'filing-case',
         component: FilingCaseComponent
+      },
+      {
+        path: 'templates',
+        component: TemplatesComponent
       }
 
     ]

@@ -30,6 +30,13 @@
             <p #filingCase>filing Case</p>
           </a>
         </li>
+
+        <li class="nav-item" [ngClass]="{'active': headerText=='Templates'}" (click)="changeRoute(templates.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-users-cog"></i>
+            <p #templates>templates</p>
+          </a>
+        </li>
 <!--&lt;!&ndash;        <li class="nav-item" [ngClass]="{'active': headerText=='Supplier'}" (click)="changeRoute(sup.innerHTML)">&ndash;&gt;-->
 <!--&lt;!&ndash;          <a class="nav-link">&ndash;&gt;-->
 <!--&lt;!&ndash;            <i class="fas fa-user-friends"></i>&ndash;&gt;-->
