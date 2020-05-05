@@ -12,6 +12,7 @@ import {Client} from '../../model/Client';
 export class ClientDetailsComponent implements OnInit {
 
 
+  // tslint:disable-next-line:no-shadowed-variable
   constructor(private ClientService: ClientService, private route: Router ) { }
 
   client: Client = new Client();
@@ -52,6 +53,7 @@ export class ClientDetailsComponent implements OnInit {
   // updateCustomerDetails :Customer = new Customer();
 
   searchClientNIC: any;
+  // tslint:disable-next-line:variable-name
   _id: string;
   firstName1: string;
   lastName1: string;
@@ -108,6 +110,7 @@ export class ClientDetailsComponent implements OnInit {
 
 
   addClient() {
+    // tslint:disable-next-line:prefer-const
     let cust: Client;
     this.ClientService.addCustomer(this.client).subscribe((result) => {
       if (result != null) {
