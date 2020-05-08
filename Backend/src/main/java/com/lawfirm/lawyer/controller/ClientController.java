@@ -2,9 +2,11 @@ package com.lawfirm.lawyer.controller;
 
 import com.lawfirm.lawyer.model.Client;
 import com.lawfirm.lawyer.repository.ClientRepository;
+import com.lawfirm.lawyer.templates.Affidavit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,6 +75,14 @@ public class ClientController {
         responseMap.put("status", 200);
         responseMap.put("message", "Success");
         return responseMap;
+    }
+
+
+    @PostMapping(value = "/printLetter")
+    public String printReport(@RequestBody String letter){
+        Affidavit l1 = new Affidavit();
+        l1.generateTemplatePdf(letter);
+        return "9";
     }
 
 }

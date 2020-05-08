@@ -37,6 +37,11 @@ export class ClientService {
     return this.http.post<Client>(environment.backend_url + URL + '/updateClient', UpdateClientDetails);
   }
 
+  // tslint:disable-next-line:ban-types
+  printLetters(ClientLetter: String) {
+    return this.http.post<Client>(environment.backend_url + URL + '/printLetter/', ClientLetter);
+  }
+
 
   // init(searchClientNIC: String) {
   //   return this.searchClientDetails(searchClientNIC).subscribe(res => {
