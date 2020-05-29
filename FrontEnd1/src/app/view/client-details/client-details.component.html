@@ -152,6 +152,10 @@
     <div class="card-body">
       <div class="row">
         <div style="margin-left: 35%; width: 50%">
+        <select class="selectpicker" data-size="7" title="Single Select">
+            <option disabled selected>Select Client</option>
+            <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>
+          </select>
           <div class="form-group">
             <label class="bmd-label-floating">Search By Name or NIC</label>
             <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"

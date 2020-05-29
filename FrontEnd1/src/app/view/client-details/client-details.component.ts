@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../service/client.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -12,13 +12,8 @@ import {Client} from '../../model/Client';
 export class ClientDetailsComponent implements OnInit {
 
 
-  // tslint:disable-next-line:no-shadowed-variable
-  constructor(private ClientService: ClientService, private route: Router ) { }
-
   client: Client = new Client();
   clientEdit: Client = new Client();
-
-
   // isValidFormSubmitted: boolean = null;
   form = new FormGroup({
     nic: new FormControl('', Validators.required),
@@ -33,7 +28,6 @@ export class ClientDetailsComponent implements OnInit {
     aboutCus: new FormControl('', Validators.required),
     type: new FormControl('', Validators.required)
   });
-
   formEdit = new FormGroup({
     nic: new FormControl('', Validators.required),
     userName: new FormControl('', Validators.required),
@@ -47,12 +41,10 @@ export class ClientDetailsComponent implements OnInit {
     aboutCus: new FormControl('', Validators.required),
     type: new FormControl('', Validators.required)
   });
-
   searchClientValueIf = true;
   searchClientDetails: Client = new Client();
-  // updateCustomerDetails :Customer = new Customer();
-
   searchClientNIC: any;
+  // updateCustomerDetails :Customer = new Customer();
   // tslint:disable-next-line:variable-name
   _id: string;
   firstName1: string;
@@ -66,16 +58,23 @@ export class ClientDetailsComponent implements OnInit {
   postal1: string;
   type1: string;
   aboutCus1: string;
+  clientList: string;
+  clients: Client[] = new Array<Client>();
+
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private ClientService: ClientService, private route: Router) {
+  }
 
   GOTOCustomer() {
     this.route.navigate(['/customer']);
   }
 
   ngOnInit() {
-
+    this.getAllClients();
   }
 
   searchClientByNIC(event: any) {
+    // tslint:disable-next-line:triple-equals
     if (this.searchClientNIC.length != 0) {
       this.ClientService.searchClientDetails(this.searchClientNIC).subscribe(res => {
         if (res == null) {
@@ -153,6 +152,13 @@ export class ClientDetailsComponent implements OnInit {
         this.aboutCus1 = null;
 
       }
+    });
+  }
+
+  getAllClients() {
+    this.ClientService.getAllClients().subscribe(res => {
+      this.clients = res;
+      console.log(res);
     });
   }
 

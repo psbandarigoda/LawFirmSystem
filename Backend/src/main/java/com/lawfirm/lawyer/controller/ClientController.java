@@ -45,16 +45,16 @@ public class ClientController {
     }
 
     @GetMapping(value = "/getAllClient")
-    public Map<String, Object> getAllUsers() {
+    public List<Client> getAllUsers() {
 
         List<Client> clients = clientRepository.findAll();
-        Map<String, Object> responseMap = new HashMap<>();
+//        Map<String, Object> responseMap = new HashMap<>();
+//
+//        responseMap.put("client", clients);
+//        responseMap.put("status", 200);
+//        responseMap.put("message", "success");
 
-        responseMap.put("client", clients);
-        responseMap.put("status", 200);
-        responseMap.put("message", "success");
-
-        return responseMap;
+        return clients;
 
 //    public void getAllUsers(DBCollection collection){
 //        {

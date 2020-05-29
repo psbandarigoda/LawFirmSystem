@@ -47,6 +47,10 @@ export class ClientService {
     return this.http.post<Client>(environment.backend_url + URL + '/printLetterE/', ClientLetter);
   }
 
+  getAllClients() {
+    return this.http.get<Array<Client>>(environment.backend_url + URL + '/getAllClient');
+  }
+
 
   // init(searchClientNIC: String) {
   //   return this.searchClientDetails(searchClientNIC).subscribe(res => {
