@@ -22,6 +22,8 @@ public class Affidavit {
             Font.BOLD);
     private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
+    private static Font sinhalaFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.BOLD);
     String fileName = "COR_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
     String FILE = "/home/pasindu/Documents/" + fileName;
 
@@ -63,7 +65,7 @@ public class Affidavit {
 
     }
 
-    private static void createTable(Document subCatPart, String letter) throws BadElementException {
+    private static void createLetter(Document subCatPart, String letter) throws BadElementException {
 
         Paragraph preface = new Paragraph();
 
@@ -98,7 +100,7 @@ public class Affidavit {
             document.open();
             addMetaData(document);
             addTitlePage(document);
-            createTable(document, letter);
+            createLetter(document, letter);
             document.close();
 
         } catch (Exception e) {

@@ -3,9 +3,11 @@ package com.lawfirm.lawyer.controller;
 import com.lawfirm.lawyer.model.Client;
 import com.lawfirm.lawyer.repository.ClientRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
+import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +83,13 @@ public class ClientController {
     @PostMapping(value = "/printLetter")
     public String printReport(@RequestBody String letter){
         Affidavit l1 = new Affidavit();
+        l1.generateTemplatePdf(letter);
+        return "9";
+    }
+
+    @PostMapping(value = "/printLetterE")
+    public String printLetterE(@RequestBody String letter) throws IOException {
+        AffidavitE l1 = new AffidavitE();
         l1.generateTemplatePdf(letter);
         return "9";
     }

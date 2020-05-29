@@ -1,4 +1,3 @@
-
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -33,41 +32,43 @@
               </li>
             </ul>
             <div class="tab-content tab-space">
+<!--              Link 1 -->
               <div class="tab-pane active" id="link1">
-
                 <p>templates works!</p>
                 <div>
-                  <input type="text" id="addressLine1" name="addressLine1" placeholder="Address line1"><br/>
-                  <input type="text" id="addressLine2" name="addressLine2" placeholder="Address line2"><br/>
-                  <input type="text" id="addressLine3" name="addressLine3" placeholder="Address line3"><br/>
-                  <input type="text" id="addressLine4" name="addressLine4" placeholder="Your e-mail address"><br/>
+                  <input id="addressLine1" name="addressLine1" placeholder="Address line1" type="text"><br/>
+                  <input id="addressLine2" name="addressLine2" placeholder="Address line2" type="text"><br/>
+                  <input id="addressLine3" name="addressLine3" placeholder="Address line3" type="text"><br/>
+                  <input id="addressLine4" name="addressLine4" placeholder="Your e-mail address" type="text"><br/>
                   <br/>
-                  <input type="text" id="Date" name="Date" placeholder="Your e-mail address"><br/>
+                  <input id="Date" name="Date" placeholder="Your e-mail address" type="text"><br/>
                   <br/>
-                  <input type="text" id="recipient" name="recipient" placeholder="Ms./Mr./Dr. recipient's name"><br/>
-                  <input type="text" id="title" name="title" placeholder="Title"><br/>
-                  <input type="text" id="Organization" name="Organization" placeholder="Organization name"><br/>
-                  <input type="text" id="addressLine11" name="addressLine1" placeholder="Address line1"><br/>
-                  <input type="text" id="addressLine12" name="addressLine2" placeholder="Address line2"><br/>
-                  <input type="text" id="addressLine13" name="addressLine3" placeholder="Zip Code"><br/>
+                  <input id="recipient" name="recipient" placeholder="Ms./Mr./Dr. recipient's name" type="text"><br/>
+                  <input id="title" name="title" placeholder="Title" type="text"><br/>
+                  <input id="Organization" name="Organization" placeholder="Organization name" type="text"><br/>
+                  <input id="addressLine11" name="addressLine1" placeholder="Address line1" type="text"><br/>
+                  <input id="addressLine12" name="addressLine2" placeholder="Address line2" type="text"><br/>
+                  <input id="addressLine13" name="addressLine3" placeholder="Zip Code" type="text"><br/>
                   <br/>
-                  <input type="text" id="Name" name="Name" placeholder="Dear Ms./Mr./Dr. Last Name:"><br/>
+                  <input id="Name" name="Name" placeholder="Dear Ms./Mr./Dr. Last Name:" type="text"><br/>
                   <br/>
-                  <input type="text" id="title1" name="addressLine3" placeholder="Name of position for which your are applying"><br/>
-                  <br/>
-                  <br/>
-                  <textarea type="text" id="Paragraph1" name="Paragraph1" placeholder="Paragraph 1"></textarea><br/>
-                  <br/>
-                  <textarea type="text" id="Paragraph2" name="Paragraph2" placeholder="Paragraph 2"></textarea><br/>
-                  <br/>
-                  <textarea type="text" id="Paragraph3" name="Paragraph3" placeholder="Paragraph 3"></textarea><br/>
-                  <br/>
-                  <input type="text" id="Sincerely" name="Sincerely" placeholder="Sincerely"><br/>
+                  <input id="title1" name="addressLine3" placeholder="Name of position for which your are applying"
+                         type="text"><br/>
                   <br/>
                   <br/>
-                  <input type="text" id="Your_signature" name="Your_signature" placeholder="Your signature (on a hard copy letter)"><br/>
+                  <textarea id="Paragraph1" name="Paragraph1" placeholder="Paragraph 1" type="text"></textarea><br/>
                   <br/>
-                  <input type="text" id="Your_name" name="Your_name" placeholder="Your name (typed)"><br/>
+                  <textarea id="Paragraph2" name="Paragraph2" placeholder="Paragraph 2" type="text"></textarea><br/>
+                  <br/>
+                  <textarea id="Paragraph3" name="Paragraph3" placeholder="Paragraph 3" type="text"></textarea><br/>
+                  <br/>
+                  <input id="Sincerely" name="Sincerely" placeholder="Sincerely" type="text"><br/>
+                  <br/>
+                  <br/>
+                  <input id="Your_signature" name="Your_signature" placeholder="Your signature (on a hard copy letter)"
+                         type="text"><br/>
+                  <br/>
+                  <input id="Your_name" name="Your_name" placeholder="Your name (typed)" type="text"><br/>
                   <br/><br/>
                   <div class="col-2">
                     <button (click)="printReport()" class="btn btn-info pull-right" type="submit">Print</button>
@@ -75,29 +76,89 @@
                 </div>
               </div>
 
-<!--              Link 2 -->
+              <!--              Link 2 -->
               <div class="tab-pane" id="link2">
-                <h3 style="text-align: center;  font-weight: bold;">දිවුරුම් ප්‍රකාශයයි</h3>
-                <br/>
-                <input type="text" id="address" name="address" placeholder="Address"> හි පදිංචි ජාතික හැඳුනුම්පත් අංක <br/>
-                <input type="text" id="nic" name="nic" placeholder="NIC"> හිමි <input type="text" id="cname" name="cname" placeholder="Name"> වන මම බෞද්ධාගමිකයෙකු <br/>
-                වශයෙන් අවංකවත්, සත්‍ය ලෙසත්, ගරු ගම්භීරතා පූර්වකවත් විධිමත් ලෙස ප්‍රතිඥා දී ප්‍රකාශ කර සිටින වගනම්,<br/><br/>
-                01.මෙම දිවුරුම් ප්‍රකාශයේ සිද්ධි ප්‍රකාශක මම වෙමි.<br/>
-                <textarea type="text" id="ParagraphAffi" name="ParagraphAffi" placeholder="Paragraph "></textarea><br/>
-                ඉහත සදහන් ප්‍රකාශය සිද්ධි ප්‍රකාශක හට කියවා තේරුම් කර දීමෙන් පසු එහි සදහන් කරුණු සත්‍ය හා නිවැරදි බවට පළිගත් බවට හැඟී ගියෙන් ප්‍රතිඥා දී අත්සන් කරන්නට යෙදුනේ වර්ෂ 2020 ක්වූ    මස   වන දින.  දීය.<br/>
-               `<br/>
-                සිද්ධි ප්‍රකාශක<br/>
-                මා ඉදිරිපිටදිය.<br/>
-                සාම විනිසුරු /දිවුරුම් කොමසාරිස්
-                <br/><br/>
-                <div class="col-2">
-                  <button (click)="printReport()" class="btn btn-info pull-right" type="submit">Print</button>
+
+                <div class="card-body ">
+                  <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#link5" role="tablist">
+                        සිංහල
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#link6" role="tablist">
+                        English
+                      </a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content tab-space">
+
+<!--                    SubLink Sinhala Link 5-->
+                    <div class="tab-pane active" id="link5">
+                      <div>
+                        <h3 style="text-align: center;  font-weight: bold;">දිවුරුම් ප්‍රකාශයයි</h3>
+                        <br/>
+                        <input [(ngModel)]="affidavitAddress" id="address" name="address" placeholder="Address" type="text">
+                        හි පදිංචි ජාතික හැඳුනුම්පත් අංක <br/>
+                        <input [(ngModel)]="affidavitNIC" id="nic" name="nic" placeholder="NIC" type="text"> හිමි <input
+                        [(ngModel)]="affidavitName" id="cname" name="cname" placeholder="Name" type="text"> වන මම
+                        බෞද්ධාගමිකයෙකු <br/>
+                        වශයෙන් අවංකවත්, සත්‍ය ලෙසත්, ගරු ගම්භීරතා පූර්වකවත් විධිමත් ලෙස ප්‍රතිඥා දී ප්‍රකාශ කර සිටින
+                        වගනම්,<br/><br/>
+                        01.මෙම දිවුරුම් ප්‍රකාශයේ සිද්ධි ප්‍රකාශක මම වෙමි.<br/>
+                        <textarea [(ngModel)]="affidavitText" id="ParagraphAffi" name="ParagraphAffi" placeholder="Paragraph"
+                                  type="text"></textarea><br/>
+                        ඉහත සදහන් ප්‍රකාශය සිද්ධි ප්‍රකාශක හට කියවා තේරුම් කර දීමෙන් පසු එහි සදහන් කරුණු සත්‍ය හා නිවැරදි බවට
+                        පළිගත් බවට හැඟී ගියෙන් ප්‍රතිඥා දී අත්සන් කරන්නට යෙදුනේ වර්ෂ 2020 ක්වූ මස වන දින. දීය.<br/>
+                        `<br/>
+                        සිද්ධි ප්‍රකාශක<br/>
+                        මා ඉදිරිපිටදිය.<br/>
+                        සාම විනිසුරු /දිවුරුම් කොමසාරිස්
+                        <br/><br/>
+                        <div class="col-2">
+                          <button (click)="printAffidavitS()" class="btn btn-info pull-right" type="submit">Print</button>
+                        </div>
+                      </div>
+                    </div>
+
+<!--                    SubLink English Link 6 -->
+                      <div class="tab-pane" id="link6">
+                        <div>
+                          <h3 style="text-align: center;  font-weight: bold;">AFFIDAVIT</h3>
+                          <br/>
+                          <input [(ngModel)]="affidavitName" id="cnameE" name="cnameE" placeholder="Name" type="text">
+                          ,belongs to the National Identity Card <br/>
+                          <input [(ngModel)]="affidavitNIC" id="nicE" name="nicE" placeholder="NIC" type="text"> of <input
+                          [(ngModel)]="affidavitAddress" id="addressE" name="addressE" placeholder="Address" type="text">
+                          in the republic of Sri Lanka being a Buddhist <br/>do hereby solemnly sincerely and truly declare and affirm as follows,<br/><br/>
+                          01.That I am the affirmant above named.<br/>
+                          <textarea [(ngModel)]="affidavitText" id="ParagraphAffiE" name="ParagraphAffiE" placeholder="Paragraph"
+                                    type="text"></textarea><br/>
+                          Read over declared and affirmed to and signed at .......  on this day of....<br/>
+                          `<br/>
+                          Affirmant<br/>
+                          Before me.<br/>
+                          Commissioner of Oaths
+                          <br/><br/>
+                          <div class="col-2">
+                            <button (click)="printAffidavitE()" class="btn btn-info pull-right" type="submit">Print</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="tab-pane" id="link3">
-                Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                <br />
-                <br />Dynamically innovate resource-leveling customer service for state of the art customer service.
+
+<!--              Link 3 -->
+                <div class="tab-pane" id="link3">
+                  Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate
+                  one-to-one customer service with robust ideas.
+                  <br/>
+                  <br/>Dynamically innovate resource-leveling customer service for state of the art customer service.
+                </div>
+
               </div>
             </div>
           </div>
@@ -105,4 +166,3 @@
       </div>
     </div>
   </div>
-</div>

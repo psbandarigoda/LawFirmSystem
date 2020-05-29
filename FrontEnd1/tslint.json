@@ -4,7 +4,13 @@
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
-      "severity": "warn"
+      "severity": "warn",
+      "variable-name": [
+        true,
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore"
+      ]
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
