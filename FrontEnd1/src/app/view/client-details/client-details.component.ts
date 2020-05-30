@@ -58,8 +58,12 @@ export class ClientDetailsComponent implements OnInit {
   postal1: string;
   type1: string;
   aboutCus1: string;
-  clientList: string;
   clients: Client[] = new Array<Client>();
+  selectedClient1: string;
+
+  // formDropdown = new FormGroup({
+  //   selectedClient : new FormControl('', Validators.required)
+  // });
 
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private ClientService: ClientService, private route: Router) {
@@ -173,5 +177,41 @@ export class ClientDetailsComponent implements OnInit {
   //       }
   //   });
   // }
+
+  getSelectedClientDetails(event: any) {
+
+    // console.log('print one ttt' + ' -- ' + this.formDropdown);
+    console.log('print one ccc' + ' -- ' + this.selectedClient1);
+    // tslint:disable-next-line:triple-equals
+    // if (this.selectedClient.length != 0) {
+    //   this.ClientService.searchClientDetails(this.selectedClient).subscribe(res => {
+    //     if (res == null) {
+    //       this.searchClientValueIf = true;
+    //     } else {
+    //       this.searchClientValueIf = false;
+    //       alert('Client is there');
+    //       // Swal.fire({
+    //       //   text: 'Hello!',
+    //       //   icon: 'success'
+    //       // });
+    //
+    //       this.searchClientDetails = res;
+    //       this.formEdit.value.address = this.searchClientDetails.address;
+    //
+    //       this._id = this.searchClientDetails._id;
+    //       this.firstName1 = this.searchClientDetails.firstName;
+    //       this.lastName1 = this.searchClientDetails.lastName;
+    //       this.userName1 = this.searchClientDetails.userName;
+    //       this.address1 = this.searchClientDetails.address;
+    //       this.nic1 = this.searchClientDetails.nic;
+    //       this.phone1 = this.searchClientDetails.phone;
+    //       this.email1 = this.searchClientDetails.email;
+    //       this.country1 = this.searchClientDetails.country;
+    //       this.postal1 = this.searchClientDetails.postal;
+    //       this.aboutCus1 = this.searchClientDetails.aboutCus;
+    //     }
+    //   });
+    // }
+  }
 
 }
