@@ -152,14 +152,18 @@
     <div class="card-body">
       <div class="row">
         <div style="margin-left: 35%; width: 50%">
-        <select class=""  [ngModel]="selectedClient1" data-style="select-with-transition" #mySelect (change)="getSelectedClientDetails(mySelect.value)">
-            <option disabled selected>Select Client</option>
-            <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>
-          </select>
+<!--        <select class=""  [ngModel]="selectedClient1" data-style="select-with-transition" #mySelect (change)="getSelectedClientDetails(mySelect.value)">-->
+<!--            <option disabled selected>Select Client</option>-->
+<!--            <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>-->
+<!--          </select>-->
             <div class="form-group">
             <label class="bmd-label-floating">Search By Name or NIC</label>
-            <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"
-                   type="text">
+<!--            <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"-->
+<!--                   type="text">-->
+              <input type="text" (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control" list="cityname">
+              <datalist id="cityname">
+                <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>
+              </datalist>
           </div>
         </div>
         <div style="margin-left: 85%; margin-top: -5%">
