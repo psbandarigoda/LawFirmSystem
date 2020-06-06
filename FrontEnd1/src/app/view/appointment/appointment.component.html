@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="card">
+    <div class="row">
+      <div class="col-1" style="margin-left: 50px">
+        <button (click)="routBacktoViewCase()" class="btn btn-primary btn-round "
+                style="float:right">
+          <i class="fas fa-add"></i>
+          Back
+        </button>
+      </div>
+      <div class="col-6" style="margin-top: auto; margin-bottom: auto"> Back to View Cases</div>
+    </div>
+  </div>
+</div>
+
+
+<!---->
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header ">
+            <h4 class="card-title">Appointments -
+              <small class="description">Client appointments and Court date</small>
+            </h4>
+          </div>
+          <div class="card-body ">
+            <ul class="nav nav-pills nav-pills-warning" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                  Client Appointment
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                  Court Date
+                </a>
+              </li>
+              <!--              <li class="nav-item">-->
+              <!--                <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">-->
+              <!--                  Deed of Gift-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--              <li class="nav-item">-->
+              <!--                <a class="nav-link" data-toggle="tab" href="#link4" role="tablist">-->
+              <!--                  Deed of Transfer-->
+              <!--                </a>-->
+              <!--              </li>-->
+            </ul>
+            <div class="tab-content tab-space">
+
+              <!--              Link 1 -->
+              <div class="tab-pane active" id="link1">
+                <form [formGroup]="formAppointment" name="formAppointment">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating"> Date </label>
+                        <input [(ngModel)]="appointment.date"
+                               [ngClass]="{'is-invalid':formAppointment.get('date').touched && formAppointment.get('date').invalid}"
+                               class="form-control" formControlName="date" maxlength="12"
+                               minlength="2" name="date"
+                               type="text">
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"> Time </label>
+                          <input [(ngModel)]="appointment.time"
+                                 [ngClass]="{'is-invalid':formAppointment.get('time').touched && formAppointment.get('time').invalid}"
+                                 class="form-control" formControlName="time" maxlength="12"
+                                 minlength="2" name="time"
+                                 type="text">
+                        </div>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> Venue </label>
+                            <input [(ngModel)]="appointment.venue"
+                                   [ngClass]="{'is-invalid':formAppointment.get('venue').touched && formAppointment.get('venue').invalid}"
+                                   class="form-control" formControlName="venue" maxlength="12"
+                                   minlength="2" name="venue"
+                                   type="text">
+                          </div>
+                        </div>
+                      </div>
+                </form>
+                <div class="col-3">
+                  <button class="btn btn-info pull-right" type="submit">Add Apppointment</button>
+                </div>
+              </div>
+
+              <!--              Link 2 -->
+              <div class="tab-pane" id="link2">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

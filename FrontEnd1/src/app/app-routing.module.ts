@@ -7,7 +7,8 @@ import {ClientDetailsComponent} from './view/client-details/client-details.compo
 import {FilingCaseComponent} from './view/filing-case/filing-case.component';
 import {CustomerOrderComponent} from './view/customer-order/customer-order.component';
 import {TemplatesComponent} from './view/templates/templates.component';
-import {ViewCaseComponent} from "./view/view-case/view-case.component";
+import {ViewCaseComponent} from './view/view-case/view-case.component';
+import {AppointmentComponent} from './view/appointment/appointment.component';
 
 
 
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'view-case',
         component: ViewCaseComponent
+      },
+      {
+        path: 'appointment',
+        component: AppointmentComponent
       },
       {
         path: 'templates',

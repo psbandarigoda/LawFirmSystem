@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CaseService} from '../../service/case.service';
 import {Case} from '../../model/Case';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-view-case',
@@ -12,10 +13,14 @@ export class ViewCaseComponent implements OnInit {
   cases: Case[] = new Array<Case>();
   searchItemValuesIf = true;
 
-  constructor(private caseService: CaseService) { }
+  constructor(private caseService: CaseService, private router: Router) { }
 
   ngOnInit() {
     this.getAllCases();
+  }
+
+  routAppointment() {
+    this.router.navigate(['/main/appointment']);
   }
 
   getAllCases() {

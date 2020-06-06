@@ -16,6 +16,7 @@ import {LoginComponent} from './view/login/login.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import { TemplatesComponent } from './view/templates/templates.component';
 import { ViewCaseComponent } from './view/view-case/view-case.component';
+import { AppointmentComponent } from './view/appointment/appointment.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -31,7 +32,8 @@ import { ViewCaseComponent } from './view/view-case/view-case.component';
     FilingCaseComponent,
     LoginComponent,
     TemplatesComponent,
-    ViewCaseComponent
+    ViewCaseComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
