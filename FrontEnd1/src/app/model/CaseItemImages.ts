@@ -1,5 +1,6 @@
 export class CaseItemImages {
-  _id : string;
-  caseNo : string;
-  imagesArray : string;
+  // tslint:disable-next-line:variable-name
+  _id: string;
+  caseNo: string;
+  imagesArray: string[];
 }

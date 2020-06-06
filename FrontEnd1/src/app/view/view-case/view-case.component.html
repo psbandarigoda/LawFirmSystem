@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="card">
+    <div class="card-header card-header-icon card-header-info">
+      <div class="card-icon">
+        <i class="fas fa-gavel"></i>
+      </div>
+      <h4 class="card-title"><b><b>View All Cases</b></b>
+      </h4>
+    </div>
+
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="text-center">Case No</th>
+          <th class="text-center">NIC</th>
+          <th class="text-center">Title</th>
+          <th class="text-center">Case Type</th>
+          <th class="text-center">Cort Date</th>
+          <th class="text-center">view</th>
+          <th class="text-center">Appointment</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngIf="searchItemValuesIf;else elseBlock">
+          <td class="alert alert-danger" colspan="8" style="text-align: center">
+            Case Not Found
+          </td>
+        </tr>
+        <ng-template #elseBlock>
+
+        <tr *ngFor="let case of cases">
+          <td class="text-center">{{case.caseNo}}</td>
+          <td class="text-center">{{case.nic}}</td>
+          <td class="text-center">{{case.title}}</td>
+          <td class="text-center">{{case.caseType}}</td>
+          <td class="text-center">2020-05-06</td>
+          <td><button  class="btn btn-primary btn-round" href="#pablo"
+                      style="float:right">
+            <i class="fas fa-add"></i>
+            View
+          </button></td>
+          <td><button class="btn btn-primary btn-round" href="#pablo"
+                      style="float:right">
+            <i class="fas fa-add"></i>
+            Appointment
+          </button></td>
+        </tr>
+        </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import {ClientDetailsComponent} from './view/client-details/client-details.compo
 import {FilingCaseComponent} from './view/filing-case/filing-case.component';
 import {CustomerOrderComponent} from './view/customer-order/customer-order.component';
 import {TemplatesComponent} from './view/templates/templates.component';
+import {ViewCaseComponent} from "./view/view-case/view-case.component";
 
 
 
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'filing-case',
         component: FilingCaseComponent
+      },
+      {
+        path: 'view-case',
+        component: ViewCaseComponent
       },
       {
         path: 'templates',

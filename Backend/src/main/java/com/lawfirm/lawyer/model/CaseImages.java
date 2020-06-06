@@ -28,4 +28,43 @@ public class CaseImages {
     @LastModifiedDate
     private Date updatedOn;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCaseNo() {
+        return caseNo;
+    }
+
+    public void setCaseNo(String caseNo) {
+        this.caseNo = caseNo;
+    }
+
+    public String[] getImagesArray() {
+        return imagesArray;
+    }
+
+    public void setImagesArray(String[] imagesArray) {
+        this.imagesArray = imagesArray;
+    }
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Date getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 }

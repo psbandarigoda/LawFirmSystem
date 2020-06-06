@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import {CaseService} from '../../service/case.service';
+import {Case} from '../../model/Case';
+
+@Component({
+  selector: 'app-view-case',
+  templateUrl: './view-case.component.html',
+  styleUrls: ['./view-case.component.css']
+})
+export class ViewCaseComponent implements OnInit {
+
+  cases: Case[] = new Array<Case>();
+  searchItemValuesIf = true;
+
+  constructor(private caseService: CaseService) { }
+
+  ngOnInit() {
+    this.getAllCases();
+  }
+
+  getAllCases() {
+    this.caseService.getAllCases().subscribe(res => {
+      if (res == null) {
+        this.searchItemValuesIf = true;
+      } else {
+        this.searchItemValuesIf = false;
+        this.cases = res;
+      }
+      console.log(res);
+    });
+  }
+
+}

@@ -33,6 +33,9 @@ export class MainComponent implements OnInit {
     } else if (this.router.url == '/main/filing-case') {
       this.headerText = 'FilingCase';
       // tslint:disable-next-line:triple-equals
+    } else if (this.router.url == '/main/view-case') {
+      this.headerText = 'ViewCase';
+      // tslint:disable-next-line:triple-equals
     } else if (this.router.url == '/main/templates') {
       this.headerText = 'Templates';
     }
@@ -50,6 +53,9 @@ export class MainComponent implements OnInit {
       // tslint:disable-next-line:triple-equals
     } else if (button == 'filing Case') {
       this.router.navigate(['/main/filing-case']);
+      // tslint:disable-next-line:triple-equals
+    } else if (button == 'view Case') {
+      this.router.navigate(['/main/view-case']);
       // tslint:disable-next-line:triple-equals
     } else if (button == 'templates') {
       this.router.navigate(['/main/templates']);
