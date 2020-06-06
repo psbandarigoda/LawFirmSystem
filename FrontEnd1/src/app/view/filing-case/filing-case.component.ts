@@ -133,6 +133,7 @@ export class FilingCaseComponent implements OnInit {
   addCase() {
     this.case.nic = this.nic1;
     // this.case.caseType = this.caseType;
+    console.log(this.case);
     this.caseService.addCase(this.case).subscribe((result) => {
       if (result != null) {
         alert('Case Added Successfully');
