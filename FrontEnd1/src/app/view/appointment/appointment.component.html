@@ -56,12 +56,23 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
+                        <label class="bmd-label-floating"> Title </label>
+                        <input [(ngModel)]="appointment.title"
+                               [ngClass]="{'is-invalid':formAppointment.get('title').touched && formAppointment.get('title').invalid}"
+                               class="form-control" formControlName="title" name="title"
+                               type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
                         <label class="bmd-label-floating"> Date </label>
                         <input [(ngModel)]="appointment.date"
                                [ngClass]="{'is-invalid':formAppointment.get('date').touched && formAppointment.get('date').invalid}"
                                class="form-control" formControlName="date" maxlength="12"
                                minlength="2" name="date"
-                               type="text">
+                               type="date">
                       </div>
                     </div>
                   </div>
@@ -73,7 +84,7 @@
                                  [ngClass]="{'is-invalid':formAppointment.get('time').touched && formAppointment.get('time').invalid}"
                                  class="form-control" formControlName="time" maxlength="12"
                                  minlength="2" name="time"
-                                 type="text">
+                                 type="time">
                         </div>
                       </div>
                     </div>
@@ -89,10 +100,25 @@
                           </div>
                         </div>
                       </div>
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('caseNo').touched && formAppointment.get('caseNo').invalid}"
+                         class="form-control" formControlName="caseNo" name="caseNo" type="hidden">
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('client').touched && formAppointment.get('client').invalid}"
+                         class="form-control" formControlName="client" name="client" type="hidden">
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('status').touched && formAppointment.get('status').invalid}"
+                         class="form-control" formControlName="status" name="status" value="pending" type="hidden">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div>
+                          <button class="btn btn-info pull-right" type="submit" (click)="addAppointment()">Add Apppointment</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </form>
-                <div class="col-3">
-                  <button class="btn btn-info pull-right" type="submit">Add Apppointment</button>
-                </div>
               </div>
 
               <!--              Link 2 -->

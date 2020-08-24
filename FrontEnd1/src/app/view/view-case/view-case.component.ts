@@ -19,8 +19,8 @@ export class ViewCaseComponent implements OnInit {
     this.getAllCases();
   }
 
-  routAppointment() {
-    this.router.navigate(['/main/appointment']);
+  routAppointment(caseNo,client) {
+    this.router.navigate(['/main/appointment',{caseNo: caseNo, client: client }]);
   }
 
   getAllCases() {
