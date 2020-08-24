@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
+import {Appointment} from "../../model/Appointment";
+import {AppointmentService} from "../../service/appointment.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -12,12 +11,27 @@ import listPlugin from '@fullcalendar/list';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appointmentService:AppointmentService) { }
 
   time = new Date();
   curDate = new Date();
+  appointments: Appointment[] = new Array<Appointment>();
+  searchItemValuesIf = true;
+
+  addAppointmentData: Appointment = new Appointment();
+  form = new FormGroup({
+    title: new FormControl('', Validators.required),
+    caseNo: new FormControl(' ', Validators.required),
+    client: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    time: new FormControl('', Validators.required),
+    venue: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required),
+  });
 
   ngOnInit() {
+    this.getAllAppointments();
+
     setInterval(() => {
       this.time = new Date();
     }, 1000);
@@ -28,6 +42,30 @@ export class DashboardComponent implements OnInit {
   //     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin ]
   //   });
 
+  }
+
+  DoneAppointment(){}
+
+  addAppointment(){
+    this.appointmentService.addAppointment(this.addAppointmentData).subscribe((result) => {
+      if (result != null) {
+        alert('Appointment Added Successfully');
+        this.addAppointmentData = new Appointment();
+        this.form.reset();
+      }
+    });
+  }
+
+  getAllAppointments() {
+    this.appointmentService.getAllAppointments().subscribe(res => {
+      if (res == null) {
+        this.searchItemValuesIf = true;
+      } else {
+        this.searchItemValuesIf = false;
+        this.appointments = res;
+      }
+      console.log(res);
+    });
   }
 
 }

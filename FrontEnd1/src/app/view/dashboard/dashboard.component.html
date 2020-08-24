@@ -13,23 +13,61 @@
 
 
 
-<div class="content">
-  <div class="container-fluid">
-    <div class="header text-center">
-      <h4 class="title">FullCalendar</h4>
-      <p class="category" style="font-size: large">A Day in the Life of
-        <a target="_blank" href="https://fullcalendar.io/"> </a> a Lawyer
-        <a href="https://fullcalendar.io/docs/" target="_blank"> </a>
-      </p>
+<div class="card">
+  <div class="card-header card-header-icon card-header-info">
+    <div class="card-icon">
+      <i class="fas fa-calendar-alt"></i>
     </div>
-    <div class="row" style="margin-top: -20px">
-      <div class="col-md-10 ml-auto mr-auto">
-        <div class="card card-calendar">
-          <div class="card-body ">
-            <div id="fullCalendar"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h4 class="card-title"><b><b>Calendar</b></b>
+    </h4>
+  </div>
+
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+<!--        <th class="text-center">ID</th>-->
+        <th class="text-center">Title</th>
+        <th class="text-center">Case No</th>
+        <th class="text-center">Client</th>
+        <th class="text-center">Venue</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Time</th>
+        <th class="text-center">Cancel</th>
+        <th class="text-center">Done</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngIf="searchItemValuesIf;else elseBlock">
+        <td class="alert alert-danger" colspan="12" style="text-align: center">
+          Event Not Found
+        </td>
+      </tr>
+      <ng-template #elseBlock>
+
+        <tr *ngFor="let appointment of appointments">
+<!--          <td class="text-center">{{appointment._id}}</td>-->
+          <td class="text-center">{{appointment.title}}</td>
+          <td class="text-center">{{appointment.caseNo}}</td>
+          <td class="text-center">{{appointment.client}}</td>
+          <td class="text-center">{{appointment.venue}}</td>
+          <td class="text-center">{{appointment.date}}</td>
+          <td class="text-center">{{appointment.time}}</td>
+          <td><button  class="btn btn-primary btn-round" href="#pablo"
+                       style="float:right">
+            <i class="fas fa-add"></i>
+            Cancel
+          </button></td>
+          <td><button class="btn btn-primary btn-round" (click)="DoneAppointment()"
+                      style="float:right">
+            <i class="fas fa-add"></i>
+            Done
+          </button></td>
+        </tr>
+      </ng-template>
+      </tbody>
+    </table>
   </div>
 </div>
+
