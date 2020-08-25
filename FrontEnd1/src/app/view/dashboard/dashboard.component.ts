@@ -46,7 +46,9 @@ export class DashboardComponent implements OnInit {
   //   let calendar = new Calendar(calendarEl, {
   //     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin ]
   //   });
-
+    setInterval(() => {
+    window.location.reload();
+    }, 40000);
   }
 
   DoneAppointment(){}
