@@ -74,9 +74,65 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  dateConverter(){
+    let formatted_date;
+    let month = [10,11,12];
+    let day = [1,2,3,4,5,6,7,8,9];
+    month.forEach(res=>{
+      if(res === this.curDate.getMonth() + 1){
+        day.forEach(res2=>{
+          if(res2 === this.curDate.getDate()) {
+            formatted_date = this.curDate.getFullYear() + "-" + (this.curDate.getMonth() + 1) + "-0" + this.curDate.getDate();
+          }else{
+            formatted_date = this.curDate.getFullYear() + "-" + (this.curDate.getMonth() + 1) + "-" + this.curDate.getDate();
+          }
+        });
+      }else{
+        day.forEach(res3=>{
+          if(res3 === this.curDate.getDate()) {
+            formatted_date = this.curDate.getFullYear() + "-0" + (this.curDate.getMonth() + 1) + "-0" + this.curDate.getDate();
+          }else{
+            formatted_date = this.curDate.getFullYear() + "-0" + (this.curDate.getMonth() + 1) + "-" + this.curDate.getDate();
+          }
+        });
+      }
+    });
+    return formatted_date;
+  }
+
+  timeConverter(){
+    let formatted_time;
+    let hours = [10,11,12];
+    let min = [1,2,3,4,5,6,7,8,9];
+    hours.forEach(res=>{
+      if(res === this.time.getHours()){
+        min.forEach(res2=>{
+          if(res2 === this.time.getDate()) {
+            formatted_time = this.time.getHours() + ":0" + this.time.getMinutes();
+          }else{
+            formatted_time = this.time.getHours() + ":" + this.time.getMinutes();
+          }
+        });
+      }else{
+        min.forEach(res3=>{
+          if(res3 === this.time.getMinutes()) {
+            formatted_time = "0"+this.time.getHours() + ":0" + this.time.getMinutes();
+          }else{
+            formatted_time = "0"+this.time.getHours() + ":" + this.time.getMinutes();
+          }
+        });
+      }
+    });
+    return formatted_time;
+  }
+
   appointmentTracking(){
-    let formatted_date = this.curDate.getFullYear()+ "-0" + (this.curDate.getMonth() + 1) + "-" + this.curDate.getDate();
-    let formatted_time =  this.curDate.getHours() + ":" + this.curDate.getMinutes();
+    // let formatted_date = this.curDate.getFullYear()+ "-0" + (this.curDate.getMonth() + 1) + "-" + this.curDate.getDate();
+    // let formatted_time =  this.curDate.getHours() + ":" + this.curDate.getMinutes();
+
+    let formatted_date = this.dateConverter();
+    let formatted_time = this.timeConverter();
+
     console.log(formatted_date+"   "+formatted_time);
 
     this.appointments.forEach(value => {
@@ -88,7 +144,7 @@ export class DashboardComponent implements OnInit {
           audio.play();
 
           this.messageColour = 'success';
-          this.messageDisplay = value.title+'     '+value.caseNo+'     '+value.client+'     '+value.venue
+          this.messageDisplay = value.title+'-----'+value.caseNo+'-----'+value.client+'-----'+value.venue
 
           value.status = 'done';
           this.updateStatusAppoints = value;
