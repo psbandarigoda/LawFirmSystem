@@ -29,4 +29,8 @@ export class AppointmentService {
     return this.http.get<Array<Appointment>>(environment.backend_url + URL + '/getAllAppointments');
   }
 
+  updateAppointmentStatus(status: Appointment) {
+    return this.http.post<Appointment>(environment.backend_url + URL + '/updateAppointmentStatus',status);
+  }
+
 }

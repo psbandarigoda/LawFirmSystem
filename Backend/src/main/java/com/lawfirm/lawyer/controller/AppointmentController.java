@@ -36,4 +36,16 @@ public class AppointmentController {
 
         return appointments;
     }
+
+    @PostMapping(value = "/updateAppointmentStatus")
+    public Map<String, Object> updateAppointmentStatus(@RequestBody Appointment updateAppointment) {
+        Appointment updateAppointmentStatus = appointmentRepository.save(updateAppointment);
+        Map<String, Object> responseMap = new HashMap<>();
+
+        responseMap.put("appointment", updateAppointmentStatus);
+        responseMap.put("status", 200);
+        responseMap.put("message", "Success");
+        return responseMap;
+    }
+
 }

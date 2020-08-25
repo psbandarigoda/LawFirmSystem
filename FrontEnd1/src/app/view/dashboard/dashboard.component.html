@@ -1,6 +1,12 @@
 <div class="container-fluid">
   <!-- your content here -->
 
+  <div class="alert alert-{{messageColour}}" colspan="12" style="text-align: center" *ngIf="nowGoingAppointment;else elseBlock">
+    {{messageDisplay}}
+  </div>
+  <ng-template #elseBlock>
+  </ng-template>
+
   <div class="alert alert-with-icon" data-notify="container">
     <i class="fas fa-envelope" data-notify="icon"></i>
     <button aria-label="Close" class="close" data-dismiss="alert" type="button">
@@ -8,7 +14,6 @@
     </button>
     <span data-notify="message" style="margin-left: 75%"> {{curDate | date:'dd-MM-yyyy'}}&nbsp;&nbsp;  {{ time | date: 'hh:mm:ss a' }}</span>
   </div>
-
 </div>
 
 

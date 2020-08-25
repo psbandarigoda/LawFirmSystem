@@ -11,12 +11,17 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private appointmentService:AppointmentService) { }
+  constructor(private appointmentService:AppointmentService) {
+  }
 
   time = new Date();
   curDate = new Date();
   appointments: Appointment[] = new Array<Appointment>();
+  updateStatusAppoints: Appointment = new Appointment();
   searchItemValuesIf = true;
+  nowGoingAppointment = true;
+  messageDisplay = 'Event Not Found on This Time';
+  messageColour = 'danger';
 
   addAppointmentData: Appointment = new Appointment();
   form = new FormGroup({
@@ -63,9 +68,38 @@ export class DashboardComponent implements OnInit {
       } else {
         this.searchItemValuesIf = false;
         this.appointments = res;
+        this.appointmentTracking();
       }
       console.log(res);
     });
+  }
+
+  appointmentTracking(){
+    let formatted_date = this.curDate.getFullYear()+ "-0" + (this.curDate.getMonth() + 1) + "-" + this.curDate.getDate();
+    let formatted_time =  this.curDate.getHours() + ":" + this.curDate.getMinutes();
+    console.log(formatted_date+"   "+formatted_time);
+
+    this.appointments.forEach(value => {
+        if(value.date === formatted_date && value.time === formatted_time){
+
+          let audio = new Audio();
+          audio.src = "../../../assets/tone/Gentle-wake-alarm-clock.mp3";
+          audio.load();
+          audio.play();
+
+          this.messageColour = 'success';
+          this.messageDisplay = value.title+'     '+value.caseNo+'     '+value.client+'     '+value.venue
+
+          value.status = 'done';
+          this.updateStatusAppoints = value;
+          this.appointmentService.updateAppointmentStatus(this.updateStatusAppoints).subscribe((result) => {
+            if (result != null) {
+              console.log('status update success');
+            }
+          });
+
+        }
+      });
   }
 
 }
