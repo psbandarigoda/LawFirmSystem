@@ -32,7 +32,8 @@ public class AffidavitE {
         String newDate = dateFormat.format(date);
 
         String fileName = "AffidavitEn_" + newDate + "_" + getCurrentTime() + ".pdf";
-        File file = new File("/home/pasindu/Documents/" + fileName);
+//        File file = new File("/home/pasindu/Documents/" + fileName);
+        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName);
 
         try {
             HtmlConverter.convertToPdf(letter, new PdfWriter(file));
