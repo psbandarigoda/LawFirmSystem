@@ -120,7 +120,7 @@ export class DashboardComponent implements OnInit {
           if(res3 === this.time.getMinutes()) {
             formatted_time = "0"+this.time.getHours() + ":0" + this.time.getMinutes();
           }else{
-            formatted_time = "0"+this.time.getHours() + ":" + this.time.getMinutes();
+            formatted_time = this.time.getHours() + ":" + this.time.getMinutes();
           }
         });
       }
