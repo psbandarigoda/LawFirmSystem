@@ -4,15 +4,15 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header ">
-            <h4 class="card-title">Template Types -
-              <small class="description">common templates</small>
+            <h4 class="card-title">My Templates
+              <small class="description">Common Templates</small>
             </h4>
           </div>
           <div class="card-body ">
             <ul class="nav nav-pills nav-pills-warning" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
-                  formal
+                  General
                 </a>
               </li>
               <li class="nav-item">
@@ -34,12 +34,12 @@
             <div class="tab-content tab-space">
 <!--              Link 1 -->
               <div class="tab-pane active" id="link1">
-                <p>templates works!</p>
+                <p> </p>
                 <div>
                   <input id="addressLine1" name="addressLine1" placeholder="Address line1" type="text"><br/>
                   <input id="addressLine2" name="addressLine2" placeholder="Address line2" type="text"><br/>
                   <input id="addressLine3" name="addressLine3" placeholder="Address line3" type="text"><br/>
-                  <input id="addressLine4" name="addressLine4" placeholder="Your e-mail address" type="text"><br/>
+                  <input id="addressLine4" name="addressLine4" placeholder="Date" type="text"><br/>
                   <br/>
                   <input id="Date" name="Date" placeholder="Your e-mail address" type="text"><br/>
                   <br/>
@@ -65,13 +65,13 @@
                   <input id="Sincerely" name="Sincerely" placeholder="Sincerely" type="text"><br/>
                   <br/>
                   <br/>
-                  <input id="Your_signature" name="Your_signature" placeholder="Your signature (on a hard copy letter)"
+                  <input id="Your_signature" name="Your_signature" placeholder="Your signature "
                          type="text"><br/>
                   <br/>
                   <input id="Your_name" name="Your_name" placeholder="Your name (typed)" type="text"><br/>
                   <br/><br/>
                   <div class="col-2">
-                    <button  class="btn btn-info pull-right" type="submit">Print</button>
+                    <button  class="btn btn-info pull-right" type="submit">Download</button>
                   </div>
                 </div>
               </div>
@@ -118,7 +118,7 @@
                         සාම විනිසුරු /දිවුරුම් කොමසාරිස්
                         <br/><br/>
                         <div class="col-2">
-                          <button (click)="printAffidavitS()" class="btn btn-info pull-right" type="submit">Print</button>
+                          <button (click)="printAffidavitS()" class="btn btn-info pull-right" type="submit">Download</button>
                         </div>
                       </div>
                     </div>
@@ -143,7 +143,7 @@
                           Commissioner of Oaths
                           <br/><br/>
                           <div class="col-2">
-                            <button (click)="printAffidavitE()" class="btn btn-info pull-right" type="submit">Print</button>
+                            <button (click)="printAffidavitE()" class="btn btn-info pull-right" type="submit">Download</button>
                           </div>
                         </div>
                       </div>
@@ -153,8 +153,20 @@
 
 <!--              Link 3 -->
                 <div class="tab-pane" id="link3">
-                  Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate
-                  one-to-one customer service with robust ideas.
+                  <div>
+                    Before Registration :<input [(ngModel)]="affidavitName" id="deedNo" name="deed" placeholder="Reg.No" type="text">
+                    <br/>
+                    Number : <input [(ngModel)]="affidavitName" id="No" name="deed" placeholder="No" type="text" >
+                      <br/>
+                    <h3 style="text-align: center;  font-weight: bold;">DEED OF GIFT</h3>
+                    Rs. <input [(ngModel)]="affidavitName" id="Amount" name="deed" placeholder="No" type="text" ><br>
+                    This deed of Gift is executed on <input [(ngModel)]="affidavitName" id="day" name="deed" placeholder="Dng ate" type="text" > day of<input [(ngModel)]="affidavitName" id="dayof" name="deed" placeholder="Month" type="text" > month of
+                    <input [(ngModel)]="affidavitName" id="monthof" name="deed" placeholder="Year" type="text" >year by Sri./Smt<input [(ngModel)]="affidavitName" id="yearby" name="deed" placeholder="No" type="text" >, S/o./<br>
+                    W/o<input [(ngModel)]="affidavitName" id="occupation" name="deed" placeholder="No" type="text" >,occupation<input [(ngModel)]="affidavitAge" id="age" name="deed" placeholder="No" type="text" >, and aged<br>
+                    <input [(ngModel)]="affidavitName" id="years" name="deed" placeholder="No" type="text" >years, residing at, <input [(ngModel)]="affidavitAddress" id="resi_address" name="deed" placeholder="address" type="text" >herein after called the DONOR. 1.<br>
+                    red to as the DONEE. 2.
+                  </div>
+
                   <br/>
                   <br/>Dynamically innovate resource-leveling customer service for state of the art customer service.
                 </div>

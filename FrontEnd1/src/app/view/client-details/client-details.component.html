@@ -6,7 +6,7 @@
           <div class="card-icon">
             <i class="fas fa-user"></i>
           </div>
-          <h4 class="card-title"><b><b>Client Details</b></b>
+          <h4 class="card-title"><b><b> Addd Client </b></b>
 
           </h4>
         </div>
@@ -116,8 +116,8 @@
                 <div class="form-group">
                   <label>About Client</label>
                   <div class="form-group">
-                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two
-                      seat Lambo.</label>
+                    <label class="bmd-label-floating">
+                      </label>
                     <textarea [(ngModel)]="client.aboutCus"
                               [ngClass]="{'is-invalid':form.get('aboutCus').touched && form.get('aboutCus').invalid }"
                               class="form-control" formControlName="aboutCus"
@@ -157,7 +157,7 @@
 <!--            <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>-->
 <!--          </select>-->
             <div class="form-group">
-            <label class="bmd-label-floating">Search By Name or NIC</label>
+            <label class="bmd-label-floating">Search By NIC</label>
 <!--            <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"-->
 <!--                   type="text">-->
               <input type="text" (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control" list="cityname">
@@ -300,8 +300,8 @@
                   <div class="form-group">
                     <label>About Client</label>
                     <div class="form-group">
-                      <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two
-                        seat Lambo.</label>
+                      <label class="bmd-label-floating">
+                        </label>
                       <textarea [(ngModel)]="clientEdit.aboutCus" [ngClass]="{'is-invalid':formEdit.get('aboutCus').touched && formEdit.get('aboutCus').invalid }"
                                 class="form-control"
                                 formControlName="aboutCus" name="aboutCus"
