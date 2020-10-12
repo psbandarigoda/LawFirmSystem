@@ -42,7 +42,8 @@ public class CaseController {
     public Map<String, Object> saveCase(@RequestBody Case addCase) {
 
     //  Folder Create
-        String dir = "/home/pasindu/Downloads/"+addCase.getCaseNo();
+//        String dir = "/home/pasindu/Downloads/"+addCase.getCaseNo();
+        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+addCase.getCaseNo();
         File file = new File(dir);
         if (file.mkdirs()) {
             System.out.println("Directory is created!");
