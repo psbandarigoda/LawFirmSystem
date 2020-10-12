@@ -8,6 +8,10 @@ import com.lawfirm.lawyer.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +40,17 @@ public class CaseController {
 
     @PostMapping(value = "/addCase")
     public Map<String, Object> saveCase(@RequestBody Case addCase) {
+
+    //  Folder Create
+        String dir = "/home/pasindu/Downloads/"+addCase.getCaseNo();
+        File file = new File(dir);
+        if (file.mkdirs()) {
+            System.out.println("Directory is created!");
+        } else {
+            System.out.println("Failed to create directory!");
+        }
+    //  End Folder Creation
+
         Case savedCase = caseRepository.save(addCase);
         Map<String, Object> responseMap = new HashMap<>();
 
