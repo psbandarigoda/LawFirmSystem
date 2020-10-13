@@ -25,18 +25,20 @@ public class AffidavitE {
 //        return newDate;
 //    }
 
-    public void generateTemplatePdf(String letter) throws IOException {
+    public void generateTemplatePdf(String letterContent, String cid) throws IOException {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String newDate = dateFormat.format(date);
 
+//        System.out.println("kkkkkkkkkkkkkkkkkk"+letterContent);
+
         String fileName = "AffidavitEn_" + newDate + "_" + getCurrentTime() + ".pdf";
-//        File file = new File("/home/pasindu/Documents/" + fileName);
-        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName);
+        File file = new File("/home/pasindu/Downloads/"+cid+"/"+fileName);
+//        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName);
 
         try {
-            HtmlConverter.convertToPdf(letter, new PdfWriter(file));
+            HtmlConverter.convertToPdf(letterContent, new PdfWriter(file));
         } catch (Exception e) {
             e.printStackTrace();
         }

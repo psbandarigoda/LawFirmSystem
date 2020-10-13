@@ -1,6 +1,7 @@
 package com.lawfirm.lawyer.controller;
 
 import com.lawfirm.lawyer.model.Client;
+import com.lawfirm.lawyer.model.Letters;
 import com.lawfirm.lawyer.repository.ClientRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
 import com.lawfirm.lawyer.templates.AffidavitE;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,10 +101,12 @@ public class ClientController {
     }
 
     @PostMapping(value = "/printLetterE")
-    public String printLetterE(@RequestBody String letter) throws IOException {
+    public Letters printLetterE(@RequestBody Letters letter) throws IOException {
+        String letterContent = letter.getLetter();
+        String cid = letter.getcID();
         AffidavitE l1 = new AffidavitE();
-        l1.generateTemplatePdf(letter);
-        return "9";
+        l1.generateTemplatePdf(letterContent,cid);
+        return letter;
     }
 
 }

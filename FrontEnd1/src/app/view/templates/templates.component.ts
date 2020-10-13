@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ClientService} from '../../service/client.service';
 import {Client} from '../../model/Client';
+import {Letters} from "../../model/Letters";
 
 @Component({
   selector: 'app-templates',
@@ -14,13 +15,15 @@ export class TemplatesComponent implements OnInit {
 
   // Affidavit Letter
   affidavitTitle: string;
-  affidavitLetter: string;
+  affidavitLetterContent: string;
   affidavitAddress: string;
   affidavitNIC: string;
   affidavitName: string;
   affidavitText: string;
 
   // tslint:disable-next-line:no-shadowed-variable
+  // affidavitLetterE: Letters = new Letters();
+  affidavitLetterS: Letters = new Letters();
   constructor(private ClientService: ClientService, private route: Router) { }
 
   ngOnInit() {
@@ -30,13 +33,13 @@ export class TemplatesComponent implements OnInit {
   printAffidavitS() {
     this.affidavitTitle = 'දිවුරුම් ප්‍රකාශයයි';
     // tslint:disable-next-line:max-line-length
-    this.affidavitLetter = this.affidavitAddress + ' හි පදිංචි ජාතික හැඳුනුම්පත් අංක ' + 'හිමි ' + this.affidavitName + ' වන මම බෞද්ධාගමිකයෙකු ' +
+    this.affidavitLetterContent = this.affidavitAddress + ' හි පදිංචි ජාතික හැඳුනුම්පත් අංක ' + 'හිමි ' + this.affidavitName + ' වන මම බෞද්ධාගමිකයෙකු ' +
       ' වශයෙන් අවංකවත්, සත්‍ය ලෙසත්, ගරු ගම්භීරතා පූර්වකවත් විධිමත් ලෙස ප්‍රතිඥා දී ප්‍රකාශ කර සිටින වගනම්,' +
       ' 01.මෙම දිවුරුම් ප්‍රකාශයේ සිද්ධි ප්‍රකාශක මම වෙමි. ' + this.affidavitText +
       // tslint:disable-next-line:max-line-length
       ' ඉහත සදහන් ප්‍රකාශය සිද්ධි ප්‍රකාශක හට කියවා තේරුම් කර දීමෙන් පසු එහි සදහන් කරුණු සත්‍ය හා නිවැරදි බවට පළිගත් බවට හැඟී ගියෙන් ප්‍රතිඥා දී අත්සන් කරන්නට යෙදුනේ වර්ෂ 2020 ක්වූ    මස   වන දින.  දීය.';
 
-    this.ClientService.printLetters(this.affidavitLetter).subscribe((result) => {
+    this.ClientService.printLetters(this.affidavitLetterS).subscribe((result) => {
       if (result != null) {
         alert('Letter Print SuccessFully');
       }
@@ -46,7 +49,7 @@ export class TemplatesComponent implements OnInit {
   printAffidavitE() {
     this.affidavitTitle = 'AFFIDAVIT';
     // tslint:disable-next-line:max-line-length
-    this.affidavitLetter = '     <h3 style="text-align: center;  font-weight: bold;">AFFIDAVIT</h3>\n' +
+    this.affidavitLetterContent = '     <h3 style="text-align: center;  font-weight: bold;">AFFIDAVIT</h3>\n' +
       '                          <br/>\n' +
       '                          ' + this.affidavitName + '\n' +
       '                          ,belongs to the National Identity Card <br/>\n' +
@@ -64,7 +67,10 @@ export class TemplatesComponent implements OnInit {
       '                          Commissioner of Oaths\n' +
       '                          <br/><br/>';
 
-    this.ClientService.printLettersE(this.affidavitLetter).subscribe((result) => {
+    let affidavitLetterE = <Letters>{};
+    affidavitLetterE.letter= this.affidavitLetterContent;
+    affidavitLetterE.cID = this.affidavitNIC;
+    this.ClientService.printLettersE(affidavitLetterE).subscribe((result) => {
       if (result != null) {
         alert('Letter Print SuccessFully');
       }

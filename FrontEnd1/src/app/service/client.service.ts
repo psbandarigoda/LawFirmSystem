@@ -5,6 +5,7 @@ import pako from 'pako';
 import {map, tap} from 'rxjs/internal/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Letters} from "../model/Letters";
 
 
 const URL = '/ClientController';
@@ -38,13 +39,13 @@ export class ClientService {
   }
 
   // tslint:disable-next-line:ban-types
-  printLetters(ClientLetter: String) {
+  printLetters(ClientLetter: Letters) {
     return this.http.post<Client>(environment.backend_url + URL + '/printLetter/', ClientLetter);
   }
 
   // tslint:disable-next-line:ban-types
-  printLettersE(ClientLetter: String) {
-    return this.http.post<Client>(environment.backend_url + URL + '/printLetterE/', ClientLetter);
+  printLettersE(ClientLetter: Letters) {
+    return this.http.post<Letters>(environment.backend_url + URL + '/printLetterE/', ClientLetter);
   }
 
   getAllClients() {
