@@ -5,6 +5,8 @@ import com.lawfirm.lawyer.model.CaseImages;
 import com.lawfirm.lawyer.model.Client;
 import com.lawfirm.lawyer.repository.CaseRepository;
 import com.lawfirm.lawyer.repository.ImageRepository;
+import com.lawfirm.lawyer.templates.Affidavit;
+import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,8 +44,8 @@ public class CaseController {
     public Map<String, Object> saveCase(@RequestBody Case addCase) {
 
     //  Folder Create
-//        String dir = "/home/pasindu/Downloads/"+addCase.getCaseNo();
-        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+addCase.getCaseNo();
+        String dir = "/home/pasindu/Downloads/"+addCase.getNic()+"/"+addCase.getCaseNo();
+//        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+addCase.getNic()+"\\"+addCase.getCaseNo();
         File file = new File(dir);
         if (file.mkdirs()) {
             System.out.println("Directory is created!");
@@ -68,4 +70,18 @@ public class CaseController {
 
         return cases;
     }
+
+//    @PostMapping(value = "/printLetter")
+//    public String printReport(@RequestBody String letter){
+//        Affidavit l1 = new Affidavit();
+//        l1.generateTemplatePdf(letter);
+//        return "9";
+//    }
+//
+//    @PostMapping(value = "/printLetterE")
+//    public String printLetterE(@RequestBody String letter) throws IOException {
+//        AffidavitE l1 = new AffidavitE();
+//        l1.generateTemplatePdf(letter);
+//        return "9";
+//    }
 }

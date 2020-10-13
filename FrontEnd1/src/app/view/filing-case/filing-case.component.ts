@@ -49,6 +49,7 @@ export class FilingCaseComponent implements OnInit {
   aboutCus1: string;
   // imgform: FormGroup;
   imgPath: any;
+  clients: Client[] = new Array<Client>();
 
   case: Case = new Case();
   form = new FormGroup({
@@ -60,6 +61,7 @@ export class FilingCaseComponent implements OnInit {
   caseType: string;
 
   ngOnInit() {
+    this.getAllClients();
     // this.imgform = this.formBuilder.group({
     //   title: new FormControl('', Validators.required),
     //   image: new FormControl(' ', Validators.required)
@@ -150,6 +152,13 @@ export class FilingCaseComponent implements OnInit {
   addimages() {
     // console.log(this.imgform.title);
     // console.log(this.imgform.image);
+  }
+
+  getAllClients() {
+    this.clientService.getAllClients().subscribe(res => {
+      this.clients = res;
+      console.log(res);
+    });
   }
 
 }
