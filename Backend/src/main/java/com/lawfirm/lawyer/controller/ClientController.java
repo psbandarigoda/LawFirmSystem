@@ -7,6 +7,7 @@ import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,18 @@ public class ClientController {
 
     @PostMapping(value = "/addClient")
     public Map<String, Object> saveUser(@RequestBody Client client) {
+
+        //  Folder Create
+        String dir = "/home/pasindu/Downloads/"+client.getNic();
+//        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+client.getNic();
+        File file = new File(dir);
+        if (file.mkdirs()) {
+            System.out.println("Directory is created!");
+        } else {
+            System.out.println("Failed to create directory!");
+        }
+        //  End Folder Creation
+
         Client savedUser = clientRepository.save(client);
         Map<String, Object> responseMap = new HashMap<>();
 
