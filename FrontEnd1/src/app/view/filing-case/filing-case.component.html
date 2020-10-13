@@ -13,7 +13,10 @@
           <div class="form-group">
             <label class="bmd-label-floating">Search By NIC</label>
             <input (keyup)="searchClientByNIC($event)" [(ngModel)]="searchClientNIC" class="form-control"
-                   type="text">
+                   type="text" list="cityname">
+            <datalist id="cityname">
+              <option *ngFor="let client of clients" [ngValue]="client">{{client.nic}}</option>
+            </datalist>
           </div>
         </div>
         <div style="margin-left: 85%; margin-top: -5%">
@@ -163,28 +166,28 @@
     </div>
 
     <!-- MULTIPLE images upload   -->
-    <div class="row">
-        <div class="card">
-          <div (fileOver)="fileOverBase($event)"
-               [ngClass]="{'drop-file-over': hasBaseDropZoneOver}"
-               [uploader]="uploader"
-               class="area fileinput-preview fileinput-exists thumbnail" multiple
-               ng2FileDrop>
-            <div id="dropZone">Drop files here</div>
-          </div>
+<!--    <div class="row">-->
+<!--        <div class="card">-->
+<!--          <div (fileOver)="fileOverBase($event)"-->
+<!--               [ngClass]="{'drop-file-over': hasBaseDropZoneOver}"-->
+<!--               [uploader]="uploader"-->
+<!--               class="area fileinput-preview fileinput-exists thumbnail" multiple-->
+<!--               ng2FileDrop>-->
+<!--            <div id="dropZone">Drop files here</div>-->
+<!--          </div>-->
 
-          <input [uploader]="uploader" multiple ng2FileSelect type="file"/>
+<!--          <input [uploader]="uploader" multiple ng2FileSelect type="file"/>-->
 
-          <button (click)="upload()">Upload files</button>
+<!--          <button (click)="upload()">Upload files</button>-->
 
-          <h2>Your files: {{ uploader?.queue?.length }}</h2>
-          <ul>
-            <li *ngFor="let item of uploader.queue">
-              {{ item?.file?.name }}
-            </li>
-          </ul>
-        </div>
-      </div>
+<!--          <h2>Your files: {{ uploader?.queue?.length }}</h2>-->
+<!--          <ul>-->
+<!--            <li *ngFor="let item of uploader.queue">-->
+<!--              {{ item?.file?.name }}-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!--  <div class="col-md-4 col-sm-4">-->
       <!--    <h4 class="title">Regular Image</h4>-->
@@ -206,6 +209,8 @@
       <!--  </div>-->
   </div>
 </div>
+<!-- END MULTIPLE images upload   -->
+
 
 <!--<div class="row">-->
 <!--<form [formGroup]="imgform" name="imgform" enctype="multipart/form-data">-->
