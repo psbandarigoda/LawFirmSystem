@@ -31,11 +31,12 @@ public class AffidavitE {
         Date date = new Date();
         String newDate = dateFormat.format(date);
 
-//        System.out.println("kkkkkkkkkkkkkkkkkk"+letterContent);
-
         String fileName = "AffidavitEn_" + newDate + "_" + getCurrentTime() + ".pdf";
+
+//        Linux Command
         File file = new File("/home/pasindu/Downloads/"+cid+"/"+fileName);
-//        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName);
+//        Windows Command
+//        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/"+cid+"/"+fileName);
 
         try {
             HtmlConverter.convertToPdf(letterContent, new PdfWriter(file));

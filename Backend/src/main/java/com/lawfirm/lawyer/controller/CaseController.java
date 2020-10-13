@@ -43,8 +43,10 @@ public class CaseController {
     @PostMapping(value = "/addCase")
     public Map<String, Object> saveCase(@RequestBody Case addCase) {
 
-    //  Folder Create
+//      Folder Creation Start
+//      Linux Command
         String dir = "/home/pasindu/Downloads/"+addCase.getNic()+"/"+addCase.getCaseNo();
+//        Windows Command
 //        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+addCase.getNic()+"\\"+addCase.getCaseNo();
         File file = new File(dir);
         if (file.mkdirs()) {

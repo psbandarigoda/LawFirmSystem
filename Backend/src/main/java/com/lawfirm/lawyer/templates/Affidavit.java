@@ -25,7 +25,10 @@ public class Affidavit {
     private static Font sinhalaFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
     String fileName = "COR_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
+
+//    Linux Command
     String FILE = "/home/pasindu/Documents/" + fileName;
+//    Windows Command
 //    String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName;
 
     /*-------------------Generate Current Date -----------------*/

@@ -24,9 +24,10 @@ public class ClientController {
 
     @PostMapping(value = "/addClient")
     public Map<String, Object> saveUser(@RequestBody Client client) {
-
-        //  Folder Create
+//        Folder Creation Start
+//        Linux Command
         String dir = "/home/pasindu/Downloads/"+client.getNic();
+//        Windows Command
 //        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+client.getNic();
         File file = new File(dir);
         if (file.mkdirs()) {
@@ -34,7 +35,7 @@ public class ClientController {
         } else {
             System.out.println("Failed to create directory!");
         }
-        //  End Folder Creation
+//          End Folder Creation
 
         Client savedUser = clientRepository.save(client);
         Map<String, Object> responseMap = new HashMap<>();
