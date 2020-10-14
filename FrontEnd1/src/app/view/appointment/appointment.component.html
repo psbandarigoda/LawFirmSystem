@@ -1,20 +1,14 @@
-<div class="row">
-  <div class="card">
-    <div class="row">
-      <div class="col-1" style="margin-left: 50px">
-        <button (click)="routBacktoViewCase()" class="btn btn-primary btn-round "
-                style="float:right">
-          <i class="fas fa-add"></i>
-          Back
-        </button>
-      </div>
-      <div class="col-6" style="margin-top: auto; margin-bottom: auto"> Back to View Cases</div>
-    </div>
+<!--Back To Previous-->
+<div class="container-fluid">
+  <div class="alert alert" colspan="12" style="text-align: left" (click)="routBacktoViewCase()">back
+<!--    <span><i class="fas fa-add"></i></span>-->
   </div>
+  <ng-template #elseBlock>
+  </ng-template>
 </div>
-
-
 <!---->
+
+<!-- your content here -->
 <div class="content">
   <div class="container-fluid">
     <div class="row">

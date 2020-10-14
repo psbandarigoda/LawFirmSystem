@@ -40,7 +40,7 @@ export class ClientService {
 
   // tslint:disable-next-line:ban-types
   printLetters(ClientLetter: Letters) {
-    return this.http.post<Client>(environment.backend_url + URL + '/printLetter/', ClientLetter);
+    return this.http.post<Letters>(environment.backend_url + URL + '/printLetterS/', ClientLetter);
   }
 
   // tslint:disable-next-line:ban-types

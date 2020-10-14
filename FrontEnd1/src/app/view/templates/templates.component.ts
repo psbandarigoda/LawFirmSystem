@@ -22,8 +22,6 @@ export class TemplatesComponent implements OnInit {
   affidavitText: string;
 
   // tslint:disable-next-line:no-shadowed-variable
-  // affidavitLetterE: Letters = new Letters();
-  affidavitLetterS: Letters = new Letters();
   constructor(private ClientService: ClientService, private route: Router) { }
 
   ngOnInit() {
@@ -39,7 +37,10 @@ export class TemplatesComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
       ' ඉහත සදහන් ප්‍රකාශය සිද්ධි ප්‍රකාශක හට කියවා තේරුම් කර දීමෙන් පසු එහි සදහන් කරුණු සත්‍ය හා නිවැරදි බවට පළිගත් බවට හැඟී ගියෙන් ප්‍රතිඥා දී අත්සන් කරන්නට යෙදුනේ වර්ෂ 2020 ක්වූ    මස   වන දින.  දීය.';
 
-    this.ClientService.printLetters(this.affidavitLetterS).subscribe((result) => {
+    let affidavitLetterS = <Letters>{};
+    affidavitLetterS.letter= this.affidavitLetterContent;
+    affidavitLetterS.cID = this.affidavitNIC;
+    this.ClientService.printLetters(affidavitLetterS).subscribe((result) => {
       if (result != null) {
         alert('Letter Print SuccessFully');
       }

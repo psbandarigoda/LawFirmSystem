@@ -17,6 +17,8 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { TemplatesComponent } from './view/templates/templates.component';
 import { ViewCaseComponent } from './view/view-case/view-case.component';
 import { AppointmentComponent } from './view/appointment/appointment.component';
+import { ViewCaseInDetailComponent } from './view/view-case-in-detail/view-case-in-detail.component';
+import {PdfViewerModule} from "ng2-pdf-viewer";
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -33,7 +35,8 @@ import { AppointmentComponent } from './view/appointment/appointment.component';
     LoginComponent,
     TemplatesComponent,
     ViewCaseComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    ViewCaseInDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { AppointmentComponent } from './view/appointment/appointment.component';
     FormsModule, FontAwesomeModule,
     HttpClientModule,
     FileUploadModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}), PdfViewerModule,
   ],
   providers: [
     HttpClient,

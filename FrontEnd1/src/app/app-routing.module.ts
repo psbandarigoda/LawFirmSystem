@@ -9,6 +9,7 @@ import {CustomerOrderComponent} from './view/customer-order/customer-order.compo
 import {TemplatesComponent} from './view/templates/templates.component';
 import {ViewCaseComponent} from './view/view-case/view-case.component';
 import {AppointmentComponent} from './view/appointment/appointment.component';
+import {ViewCaseInDetailComponent} from "./view/view-case-in-detail/view-case-in-detail.component";
 
 
 
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'appointment',
         component: AppointmentComponent
+      },
+      {
+        path: 'View-Case-In-Detail',
+        component: ViewCaseInDetailComponent
       },
       {
         path: 'templates',

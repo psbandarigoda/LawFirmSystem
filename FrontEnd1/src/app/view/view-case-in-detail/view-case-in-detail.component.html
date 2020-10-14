@@ -1,0 +1,43 @@
+<!--Back To Previous-->
+<div class="container-fluid">
+  <div class="alert alert" colspan="12" style="text-align: left" (click)="routBacktoViewCase()">back
+  </div>
+</div>
+<!---->
+
+<!-- your content here -->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-profile" style="padding-bottom: 125px">
+      <div class="card-avatar">
+        <a href="#pablo">
+          <img class="img" src="../../assets/img/faces/sri-lankan-lady-maskeliya-sri-lanka-asia-M27B89.jpg"/>
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category text-gray">{{nic1}}</h6>
+        <h4 class="card-title">{{firstName1}} {{lastName1}}</h4>
+        <p class="card-description">
+          {{aboutCus1}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!---->
+
+<button (click)="toggle()">VIEW RECEIPT</button>
+<div style="position: relative; height:715px;">
+  <pdf-viewer *ngIf="isHideReceipt" [autoresize]="true" [src]="pdfSrc" [original-size]="false"
+              [render-text]='false' [show-all]="false" style="display: block;position: relative"
+              [fit-to-page]="true">
+  </pdf-viewer>
+  <button *ngIf="isHideReceipt" style="position: absolute; right: 10px; bottom: 10px;" (click)="download()">Download PDF</button>
+</div>
+
+<!--<pdf-viewer [src]="pdfSrc"-->
+<!--            [render-text]="true"-->
+<!--            style="display: block;"-->
+<!--&gt;</pdf-viewer>-->

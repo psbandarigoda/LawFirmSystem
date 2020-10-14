@@ -94,11 +94,13 @@ public class ClientController {
     }
 
 
-    @PostMapping(value = "/printLetter")
-    public String printReport(@RequestBody String letter){
+    @PostMapping(value = "/printLetterS")
+    public Letters printReport(@RequestBody Letters letter){
+        String letterContent = letter.getLetter();
+        String cid = letter.getcID();
         Affidavit l1 = new Affidavit();
-        l1.generateTemplatePdf(letter);
-        return "9";
+        l1.generateTemplatePdf(letterContent,cid);
+        return letter;
     }
 
     @PostMapping(value = "/printLetterE")

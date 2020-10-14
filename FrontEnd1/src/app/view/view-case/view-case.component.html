@@ -36,7 +36,7 @@
           <td class="text-center">{{case.title}}</td>
           <td class="text-center">{{case.caseType}}</td>
           <td class="text-center">2020-05-06</td>
-          <td><button  class="btn btn-primary btn-round" href="#pablo"
+          <td><button  class="btn btn-primary btn-round" (click)="routViewInDetail((case.caseNo),(case.nic))"
                       style="float:right">
             <i class="fas fa-add"></i>
             View

@@ -23,6 +23,10 @@ export class ViewCaseComponent implements OnInit {
     this.router.navigate(['/main/appointment',{caseNo: caseNo, client: client }]);
   }
 
+  routViewInDetail(caseNo,client) {
+    this.router.navigate(['/main/View-Case-In-Detail',{caseNo: caseNo, client: client }]);
+  }
+
   getAllCases() {
     this.caseService.getAllCases().subscribe(res => {
       if (res == null) {

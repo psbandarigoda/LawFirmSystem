@@ -24,12 +24,8 @@ public class Affidavit {
             Font.BOLD);
     private static Font sinhalaFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
-    String fileName = "COR_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
+    String fileName = "AffidavitSin_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
 
-//    Linux Command
-    String FILE = "/home/pasindu/Documents/" + fileName;
-//    Windows Command
-//    String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/" + fileName;
 
     /*-------------------Generate Current Date -----------------*/
     public static String getCurrentDate() {
@@ -94,7 +90,12 @@ public class Affidavit {
 
     }
 
-    public void generateTemplatePdf(String letter) {
+    public void generateTemplatePdf(String letterContent, String cid) {
+
+//        Linux Command
+        String FILE = "/home/pasindu/Downloads/"+cid+"/"+fileName;
+//        Windows Command
+//        String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/"+cid+"/"+fileName;
 
 
         try {
@@ -104,7 +105,7 @@ public class Affidavit {
             document.open();
             addMetaData(document);
             addTitlePage(document);
-            createLetter(document, letter);
+            createLetter(document, letterContent);
             document.close();
 
         } catch (Exception e) {
