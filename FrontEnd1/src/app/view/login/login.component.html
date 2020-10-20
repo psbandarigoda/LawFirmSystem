@@ -1,41 +1,78 @@
-<img class="full-page-background" src="../assets/img/first.jpg" style="position: fixed">
+<img class="full-page-background" src="../assets/img/702862.jpg"
+     style="height: 100% ; width: 100%; position: absolute">
 
-<div class="row" style="height: 150px"></div>
-<div class="row">
-    <div class="col-md-2" ></div>
-    <div class="col-md-4" >
-        <div class="card " style="position: fixed; width: 350px;  opacity: 0.8;">
-            <div class="card-header card-header-rose card-header-icon">
-                <div class="card-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h4 class="card-title">Login Form</h4>
-            </div>
-            <div class="card-body">
-                <form action="#" method="#" [formGroup]="loginForm" *ngIf="loginForm">
-                    <div class="form-group">
-                        <label class="bmd-label-floating" for="exampleEmail">Email Address</label>
-                        <input class="form-control" id="exampleEmail" type="email" formControlName="username">
-                    </div>
-                    <div class="form-group">
-                        <label class="bmd-label-floating" for="examplePass">Password</label>
-                        <input class="form-control" id="examplePass" type="password" formControlName="password">
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value=""> Remember password
-                            <span class="form-check-sign">
-                          <span class="check"></span>
-                        </span>
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer ">
-                <button class="btn btn-fill btn-rose" type="submit" (click)="login()">Submit</button>
-            </div>
-        </div>
-    </div>
+<div class="row" style="height: 200px; margin-left: 5%">
+  <h1 style="position: absolute; margin-left: 2%; margin-top: 2%; font-style: italic">
+    <span style="font-size: larger; color: whitesmoke">{{quote1}}</span>
+    <br/>
+    <span style="font-size: revert; color: #BDBDBD; margin-left: 25%; font-style: italic">{{quote2}}</span></h1>
 </div>
+<!--<div class="row">-->
+<!--    <div class="col-md-2" ></div>-->
+<!--    <div class="col-md-4" >-->
+<!--        <div class="card " style="position: fixed; width: 350px;  opacity:0.8;">-->
+<!--            <div class="card-header card-header-rose card-header-icon">-->
+<!--                <div class="card-icon">-->
+<!--                    <i class="fas fa-user"></i>-->
+<!--                </div>-->
+<!--                <h4 class="card-title">Login Form</h4>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--                <form action="#" method="#" [formGroup]="loginForm" *ngIf="loginForm">-->
+<!--                    <div class="form-group">-->
+<!--                        <label class="bmd-label-floating" for="exampleEmail">Email Address</label>-->
+<!--                        <input class="form-control" id="exampleEmail" type="email" formControlName="username">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label class="bmd-label-floating" for="examplePass">Password</label>-->
+<!--                        <input class="form-control" id="examplePass" type="password" formControlName="password">-->
+<!--                    </div>-->
+<!--                    <div class="form-check">-->
+<!--                        <label class="form-check-label">-->
+<!--                            <input class="form-check-input" type="checkbox" value=""> Remember password-->
+<!--                            <span class="form-check-sign">-->
+<!--                          <span class="check"></span>-->
+<!--                        </span>-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="card-footer ">-->
+<!--                <button class="btn btn-fill btn-rose" type="submit" (click)="login()">Submit</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!--        <button (click)="login()" class="btn" to="body">Login</button>-->
+
+<div class="row">
+  <div class="col-8"></div>
+  <div class="col-3">
+    <form *ngIf="loginForm" [formGroup]="loginForm" action="#" method="#">
+      <div class="form-group">
+        <label class="bmd-label-floating" for="exampleEmail">Email Address</label>
+        <input class="form-control" formControlName="username" id="exampleEmail" type="email">
+      </div>
+      <div class="form-group">
+        <label class="bmd-label-floating" for="examplePass">Password</label>
+        <input class="form-control" formControlName="password" id="examplePass" type="password">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value=""> Remember password
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-1">
+    <button (click)="login()" class="btn btn-fill btn-rose" type="submit">Submit</button>
+  </div>
+</div>
+
