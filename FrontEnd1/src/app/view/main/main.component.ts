@@ -23,40 +23,33 @@ export class MainComponent implements OnInit {
 
   setHeaderTextAndButtons() {
 
-    // tslint:disable-next-line:triple-equals
     if (this.router.url == '/main/dashboard') {
       this.headerText = 'Dashboard';
-      // tslint:disable-next-line:triple-equals
     } else if (this.router.url == '/main/client-details') {
       this.headerText = 'ClientDetails';
-      // tslint:disable-next-line:triple-equals
+    } else if (this.router.url == '/main/client-details-edit') {
+      this.headerText = 'ClientDetailsEdit';
     } else if (this.router.url == '/main/filing-case') {
       this.headerText = 'FilingCase';
-      // tslint:disable-next-line:triple-equals
     } else if (this.router.url == '/main/view-case') {
       this.headerText = 'ViewCase';
-      // tslint:disable-next-line:triple-equals
     } else if (this.router.url == '/main/templates') {
       this.headerText = 'Templates';
     }
   }
 
   changeRoute(button) {
-    // @ts-ignore
     console.log(button);
-    // tslint:disable-next-line:triple-equals
     if (button == 'Dashboard') {
       this.router.navigate(['/main/dashboard']);
-      // tslint:disable-next-line:triple-equals
-    } else if (button == 'client Details') {
+    } else if (button == 'Add client') {
       this.router.navigate(['/main/client-details']);
-      // tslint:disable-next-line:triple-equals
+    } else if (button == 'Edit client') {
+      this.router.navigate(['/main/client-details-edit']);
     } else if (button == 'filing Case') {
       this.router.navigate(['/main/filing-case']);
-      // tslint:disable-next-line:triple-equals
     } else if (button == 'view Case') {
       this.router.navigate(['/main/view-case']);
-      // tslint:disable-next-line:triple-equals
     } else if (button == 'templates') {
       this.router.navigate(['/main/templates']);
     }

@@ -19,6 +19,7 @@ import { ViewCaseComponent } from './view/view-case/view-case.component';
 import { AppointmentComponent } from './view/appointment/appointment.component';
 import { ViewCaseInDetailComponent } from './view/view-case-in-detail/view-case-in-detail.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import { ClientDetailsEditComponent } from './view/client-details-edit/client-details-edit.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -36,7 +37,8 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
     TemplatesComponent,
     ViewCaseComponent,
     AppointmentComponent,
-    ViewCaseInDetailComponent
+    ViewCaseInDetailComponent,
+    ClientDetailsEditComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ import java.util.Date;
 public class Client {
 
     @Id
-    private String id;
+    private String _id;
 
     String nic;
     String firstName;
@@ -52,11 +52,11 @@ public class Client {
 //    }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getNic() {
