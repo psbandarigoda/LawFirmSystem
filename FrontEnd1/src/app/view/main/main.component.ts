@@ -26,13 +26,13 @@ export class MainComponent implements OnInit {
     if (this.router.url == '/main/dashboard') {
       this.headerText = 'Dashboard';
     } else if (this.router.url == '/main/client-details') {
-      this.headerText = 'ClientDetails';
+      this.headerText = 'Add Client Details';
     } else if (this.router.url == '/main/client-details-edit') {
-      this.headerText = 'ClientDetailsEdit';
+      this.headerText = 'Client Details Edit';
     } else if (this.router.url == '/main/filing-case') {
-      this.headerText = 'FilingCase';
+      this.headerText = 'Filing Case';
     } else if (this.router.url == '/main/view-case') {
-      this.headerText = 'ViewCase';
+      this.headerText = 'View Case';
     } else if (this.router.url == '/main/templates') {
       this.headerText = 'Templates';
     }
