@@ -158,7 +158,8 @@
       </ul>
     </div>
   </div>
-  <div class="main-panel" [ngStyle]="{'background' : 'url(assets/img/b2.jpg)'}">
+  <div class="main-panel" data-background-color="black" [ngStyle]="{'background' : 'url(assets/img/123.jpg)', 'backgroundColor':'black'}">
+<!--  <div class="main-panel" [ngStyle]="{'backgroundColor':'black'}">-->
 
 
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " style="color: whitesmoke">
@@ -208,10 +209,10 @@
           <a class="linkStyle" href="#" target="_blank"><u>About</u></a>&nbsp;&nbsp;
           <a class="linkStyle" href="#" target="_blank"><u>Help</u></a>&nbsp;&nbsp;
         </div>
-        <div class="copyright float-right">
+        <div class="copyright float-right linkStyle">
           copyright &copy;
           2020 All rights reserved | This Application is made by<i class="material-icons"></i> by
-        <a href="#" target="_blank">Kawya</a>.
+        <a href="#" target="_blank" class="linkStyle">Kawya</a>.
         </div>
       </div>
     </footer>
