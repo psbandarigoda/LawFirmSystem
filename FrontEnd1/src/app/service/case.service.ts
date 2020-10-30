@@ -28,4 +28,16 @@ export class CaseService {
     return this.http.get<Array<Case>>(environment.backend_url + URL + '/getAllCases');
   }
 
+  getCasesByNIC(filterNIC:string) {
+    return this.http.get<Array<Case>>(environment.backend_url + URL + '/getCasesByNIC/'+filterNIC);
+  }
+
+  filterCaseNo(filterCaseNo:string) {
+    return this.http.get<Array<Case>>(environment.backend_url + URL + '/getCasesByCaseNo/'+filterCaseNo);
+  }
+
+  filterCaseType(filterCaseType:string) {
+    return this.http.get<Array<Case>>(environment.backend_url + URL + '/getCasesByCaseType/'+filterCaseType);
+  }
+
 }

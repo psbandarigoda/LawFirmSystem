@@ -73,6 +73,30 @@ public class CaseController {
         return cases;
     }
 
+    @GetMapping(value = "/getCasesByNIC/{nic}")
+    public List<Case> getCasesByNIC(@PathVariable String nic) {
+
+        List<Case> cases = caseRepository.findByNIC(nic);
+
+        return cases;
+    }
+
+    @GetMapping(value = "/getCasesByCaseNo/{caseNo}")
+    public List<Case> getCasesByCaseNo(@PathVariable String caseNo) {
+
+        List<Case> cases = caseRepository.findByCaseNo(caseNo);
+
+        return cases;
+    }
+
+    @GetMapping(value = "/getCasesByCaseType/{caseType}")
+    public List<Case> getCasesByCaseType(@PathVariable String caseType) {
+
+        List<Case> cases = caseRepository.findByCaseType(caseType);
+
+        return cases;
+    }
+
 //    @PostMapping(value = "/printLetter")
 //    public String printReport(@RequestBody String letter){
 //        Affidavit l1 = new Affidavit();

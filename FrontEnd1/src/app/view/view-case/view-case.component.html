@@ -1,55 +1,88 @@
-<div class="row">
-  <div class="card">
-    <div class="card-header card-header-icon card-header-info">
-      <div class="card-icon">
-        <i class="fas fa-gavel"></i>
+<div class="content" style="opacity: 95%">
+  <div class="container-fluid">
+    <div class="row" style="opacity: 95%">
+      <div class="col-4">
+        <label class="bmd-label-floating" style="color: black">Filter by NIC : </label>
+        <div class="row">
+          <input [(ngModel)]="filterNIC" class="text-rose">
+          <input style="float: right" type="submit" value="Find" (click)="getCasesByNIC()"/>
+        </div>
       </div>
-      <h4 class="card-title"><b><b>View All Cases</b></b>
-      </h4>
+      <div class="col-4">
+        <label class="bmd-label-floating" style="color: black">Filter by CaseNo : </label>
+        <div class="row">
+          <input [(ngModel)]="filterCaseNo" class="text-rose">
+          <input style="float: right" type="submit" value="Find" (click)="getCasesByCaseNo()"/>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="bmd-label-floating" style="color: black">Filter by Case Type : </label>
+        <div class="row">
+          <input [(ngModel)]="filterCaseType" class="text-rose">
+          <input style="float: right" type="submit" value="Find" (click)="getCasesByCaseType()"/>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="card-body">
-      <table class="table">
-        <thead>
-        <tr>
-          <th class="text-center">Case No</th>
-          <th class="text-center">NIC</th>
-          <th class="text-center">Title</th>
-          <th class="text-center">Case Type</th>
-          <th class="text-center">Court Date</th>
-          <th class="text-center">view</th>
-          <th class="text-center">Appointment</th>
-        </tr>
-        </thead>
+<div class="content" style="opacity: 95%">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <h4 class="card-title"><b><b>View All Cases</b></b>
+          </h4>
+        </div>
 
-        <tbody>
-        <tr *ngIf="searchItemValuesIf;else elseBlock">
-          <td class="alert alert-danger" colspan="8" style="text-align: center">
-            Case Not Found
-          </td>
-        </tr>
-        <ng-template #elseBlock>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th class="text-center">Case No</th>
+              <th class="text-center">NIC</th>
+              <th class="text-center">Title</th>
+              <th class="text-center">Case Type</th>
+              <th class="text-center">Court Date</th>
+              <th class="text-center">view</th>
+              <th class="text-center">Appointment</th>
+            </tr>
+            </thead>
 
-        <tr *ngFor="let case of cases">
-          <td class="text-center">{{case.caseNo}}</td>
-          <td class="text-center">{{case.nic}}</td>
-          <td class="text-center">{{case.title}}</td>
-          <td class="text-center">{{case.caseType}}</td>
-          <td class="text-center">2020-05-06</td>
-          <td><button  class="btn btn-primary btn-round" (click)="routViewInDetail((case.caseNo),(case.nic))"
-                      style="float:right">
-            <i class="fas fa-add"></i>
-            View
-          </button></td>
-          <td><button class="btn btn-primary btn-round" (click)="routAppointment((case.caseNo),(case.nic))"
-                      style="float:right">
-            <i class="fas fa-add"></i>
-            Appointment
-          </button></td>
-        </tr>
-        </ng-template>
-        </tbody>
-      </table>
+            <tbody>
+            <tr *ngIf="searchItemValuesIf;else elseBlock">
+              <td class="alert alert-danger" colspan="8" style="text-align: center">
+                Case Not Found
+              </td>
+            </tr>
+            <ng-template #elseBlock>
+
+              <tr *ngFor="let case of cases">
+                <td class="text-center">{{case.caseNo}}</td>
+                <td class="text-center">{{case.nic}}</td>
+                <td class="text-center">{{case.title}}</td>
+                <td class="text-center">{{case.caseType}}</td>
+                <td class="text-center">2020-05-06</td>
+                <td><button (click)="routViewInDetail((case.caseNo),(case.nic))" class="btn btn-primary btn-round"
+                            style="float:right">
+                  <i class="fas fa-add"></i>
+                  View
+                </button></td>
+                <td><button (click)="routAppointment((case.caseNo),(case.nic))" class="btn btn-primary btn-round"
+                            style="float:right">
+                  <i class="fas fa-add"></i>
+                  Appointment
+                </button>
+                </td>
+              </tr>
+            </ng-template>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
