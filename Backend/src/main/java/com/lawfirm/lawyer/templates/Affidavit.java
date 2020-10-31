@@ -5,6 +5,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -94,6 +95,8 @@ public class Affidavit {
 
 //        Linux Command
         String FILE = "/home/pasindu/Downloads/"+cid+"/"+fileName;
+        String FILE2 = ("/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+cid+"/"+fileName);
+
 //        Windows Command
 //        String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/"+cid+"/"+fileName;
 
@@ -108,6 +111,20 @@ public class Affidavit {
             createLetter(document, letterContent);
             document.close();
 
+            try {
+
+                Document document2 = new Document();
+                PdfWriter.getInstance(document2, new FileOutputStream(FILE2));
+                document2.open();
+                addMetaData(document2);
+                addTitlePage(document2);
+                createLetter(document2, letterContent);
+                document2.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -119,6 +136,11 @@ public class Affidavit {
 
         document.addTitle("Customer Order Report");
 
+    }
+
+    public String fileLocation(){
+
+        return fileName;
     }
 
 
