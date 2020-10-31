@@ -1,8 +1,10 @@
 package com.lawfirm.lawyer.controller;
 
 import com.lawfirm.lawyer.model.Client;
+import com.lawfirm.lawyer.model.LetterLocation;
 import com.lawfirm.lawyer.model.Letters;
 import com.lawfirm.lawyer.repository.ClientRepository;
+import com.lawfirm.lawyer.repository.LetterLocationRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
 import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +24,26 @@ public class ClientController {
     @Autowired
     private ClientRepository clientRepository;
 
+    @Autowired
+    private LetterLocationRepository letterLocationRepository;
+
     @PostMapping(value = "/addClient")
     public Map<String, Object> saveUser(@RequestBody Client client) {
 //        Folder Creation Start
 //        Linux Command
         String dir = "/home/pasindu/Downloads/"+client.getNic();
+        String dir2 = "/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+client.getNic();
 //        Windows Command
 //        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+client.getNic();
         File file = new File(dir);
+        File file2 = new File(dir2);
         if (file.mkdirs()) {
             System.out.println("Directory is created!");
+            if (file2.mkdirs()) {
+                System.out.println("Directory is created!");
+            } else {
+                System.out.println("Failed to create directory!");
+            }
         } else {
             System.out.println("Failed to create directory!");
         }
@@ -100,6 +112,17 @@ public class ClientController {
         String cid = letter.getcID();
         Affidavit l1 = new Affidavit();
         l1.generateTemplatePdf(letterContent,cid);
+
+        String File = l1.fileLocation();
+
+        LetterLocation location1 = new LetterLocation();
+
+        location1.setCaseID("common");
+        location1.setClientID(cid);
+        location1.setLetterLocation(File);
+        location1.setName("Affidavit_Sinhala");
+
+        letterLocationRepository.save(location1);
         return letter;
     }
 
@@ -109,6 +132,17 @@ public class ClientController {
         String cid = letter.getcID();
         AffidavitE l1 = new AffidavitE();
         l1.generateTemplatePdf(letterContent,cid);
+
+        String File = l1.fileLocation();
+
+        LetterLocation location1 = new LetterLocation();
+
+        location1.setCaseID("common");
+        location1.setClientID(cid);
+        location1.setLetterLocation(File);
+        location1.setName("Affidavit_English");
+
+        letterLocationRepository.save(location1);
         return letter;
     }
 

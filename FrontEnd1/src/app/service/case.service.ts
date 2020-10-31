@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Case} from '../model/Case';
+import {LetterLocation} from "../model/LetterLocation";
 
 const URL = '/CaseController';
 
@@ -38,6 +39,10 @@ export class CaseService {
 
   filterCaseType(filterCaseType:string) {
     return this.http.get<Array<Case>>(environment.backend_url + URL + '/getCasesByCaseType/'+filterCaseType);
+  }
+
+  getAllpdfByClient(clintID:string) {
+    return this.http.get<Array<LetterLocation>>(environment.backend_url + URL + '/getAllpdfByClient/'+clintID);
   }
 
 }

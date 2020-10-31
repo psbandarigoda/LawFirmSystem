@@ -24,17 +24,39 @@
       </div>
     </div>
   </div>
+
+  <div class="col-md-8">
+    <div class="card card-profile" style="padding-bottom: 125px">
+      <div class="card-body">
+        <h3 class="card-category text-gray">Other Cases And Important Info</h3>
+        <h6 class="card-category text-gray">{{nic1}}</h6>
+        <h4 class="card-title">{{firstName1}} {{lastName1}}</h4>
+        <p class="card-description">
+          {{aboutCus1}}
+        </p>
+      </div>
+    </div>
+  </div>
+
 </div>
 </div>
 <!---->
 
-<button (click)="toggle()">VIEW RECEIPT</button>
-<div style="position: relative; height:715px;">
-  <pdf-viewer *ngIf="isHideReceipt" [autoresize]="true" [src]="pdfSrc" [original-size]="false"
-              [render-text]='false' [show-all]="false" style="display: block;position: relative"
-              [fit-to-page]="true">
-  </pdf-viewer>
-  <button *ngIf="isHideReceipt" style="position: absolute; right: 10px; bottom: 10px;" (click)="download()">Download PDF</button>
+<div class="container" style="opacity: 95%; height: 400px" >
+  <div class="row">
+    <div class="col-3" *ngFor="let pdfSrc of pdf">
+      <button (click)="toggle()" class="btn">{{pdfSrc.name}}</button>
+      <div>
+        <pdf-viewer *ngIf="isHideReceipt" [autoresize]="true" [fit-to-page]="true" [original-size]="false"
+                    [render-text]='false' [show-all]="false" [src]="pdfSrc.letterLocation"
+                    style="display: block;position: relative">
+        </pdf-viewer>
+        <button (click)="download()" *ngIf="isHideReceipt" style="position: absolute; right: 10px; bottom: 10px;">
+          Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--<pdf-viewer [src]="pdfSrc"-->

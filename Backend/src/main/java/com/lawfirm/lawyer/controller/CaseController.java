@@ -3,8 +3,10 @@ package com.lawfirm.lawyer.controller;
 import com.lawfirm.lawyer.model.Case;
 import com.lawfirm.lawyer.model.CaseImages;
 import com.lawfirm.lawyer.model.Client;
+import com.lawfirm.lawyer.model.LetterLocation;
 import com.lawfirm.lawyer.repository.CaseRepository;
 import com.lawfirm.lawyer.repository.ImageRepository;
+import com.lawfirm.lawyer.repository.LetterLocationRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
 import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class CaseController {
     @Autowired
     private ImageRepository imageRepository;
 
+    @Autowired
+    private LetterLocationRepository letterLocationRepository;
+
     @PostMapping(value = "/addCaseImages")
     public Map<String, Object> saveCaseImages(@RequestBody CaseImages caseImages) {
         CaseImages savedCaseImage = imageRepository.save(caseImages);
@@ -46,11 +51,20 @@ public class CaseController {
 //      Folder Creation Start
 //      Linux Command
         String dir = "/home/pasindu/Downloads/"+addCase.getNic()+"/"+addCase.getCaseNo();
+        String dir2 = "/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+addCase.getNic()+"/"+addCase.getCaseNo();
+
 //        Windows Command
 //        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+addCase.getNic()+"\\"+addCase.getCaseNo();
+
         File file = new File(dir);
+        File file2 = new File(dir2);
         if (file.mkdirs()) {
             System.out.println("Directory is created!");
+            if (file2.mkdirs()) {
+                System.out.println("Directory is created!");
+            } else {
+                System.out.println("Failed to create directory!");
+            }
         } else {
             System.out.println("Failed to create directory!");
         }
@@ -95,6 +109,14 @@ public class CaseController {
         List<Case> cases = caseRepository.findByCaseType(caseType);
 
         return cases;
+    }
+
+    @GetMapping(value = "/getAllpdfByClient/{client}")
+    public List<LetterLocation> getAllpdfByClient(@PathVariable String client) {
+
+        List<LetterLocation> letter = letterLocationRepository.getAllpdfByClient(client);
+
+        return letter;
     }
 
 //    @PostMapping(value = "/printLetter")
