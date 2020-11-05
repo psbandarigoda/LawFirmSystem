@@ -33,4 +33,8 @@ export class AppointmentService {
     return this.http.post<Appointment>(environment.backend_url + URL + '/updateAppointmentStatus',status);
   }
 
+  sendSMS(phone:string ,password:string ,receiver:string, message:string) {
+    return this.http.get<string>(environment.backend_url + URL + '/sendMessageToCustomer/'+phone+'/'+password+'/'+receiver+'/'+message);
+  }
+
 }
