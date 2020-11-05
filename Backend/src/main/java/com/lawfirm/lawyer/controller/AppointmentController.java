@@ -6,6 +6,11 @@ import com.lawfirm.lawyer.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,4 +53,39 @@ public class AppointmentController {
         return responseMap;
     }
 
+    @GetMapping(value = "/sendMessageToCustomer/{phoneNumber}/{password}/{accountName}/{message}")
+    public String getItems(@PathVariable String phoneNumber, @PathVariable String password, @PathVariable String accountName, @PathVariable String message) throws IOException {
+
+        String msg = "Dearvaluable customer, we started servicing your vehicle. -TurismoAuto";
+        String number = "94" + accountName.substring(1);
+
+        try {
+            URL textit = new URL("http://textit.biz/sendmsg/index.php?id=94773638063&pw=5584&to="+number+"&text="+message+"");
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(textit.openStream()));
+
+            String inputLine;
+            while ((inputLine = in.readLine()) != null)
+                System.out.println(inputLine);
+            in.close();
+
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }
+
+
+//        URL textit = null;
+//        try {
+//            textit = new URL("http://textit.biz/sendmsg/index.php?id="+accountName+"&pw="+password+"&to="+number +"&text=Dear%20valuable%20customer,%20we%20started%20servicing%20your%20vehicle.%20-TurismoAuto");
+//            BufferedReader in = new BufferedReader(new InputStreamReader(textit.openStream()));
+//            String inputLine;
+//            while ((inputLine = in.readLine()) != null)
+//                System.out.println(inputLine);
+//            in.close();
+//
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+        return "0";
+    }
 }

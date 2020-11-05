@@ -149,4 +149,18 @@ export class DashboardComponent implements OnInit {
       });
   }
 
+  sendSMS(){
+    let phone="94773638063"
+    let password="5584"
+    let receiver="94775864592"
+    let message="Test+You+have+meeting"
+    this.appointmentService.sendSMS(phone,password,receiver,message).subscribe(res => {
+      if (res == null) {
+      } else {
+
+      }
+      console.log(res);
+    });
+  }
+
 }
