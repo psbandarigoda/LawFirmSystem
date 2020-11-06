@@ -11,6 +11,8 @@ import {ViewCaseComponent} from './view/view-case/view-case.component';
 import {AppointmentComponent} from './view/appointment/appointment.component';
 import {ViewCaseInDetailComponent} from "./view/view-case-in-detail/view-case-in-detail.component";
 import {ClientDetailsEditComponent} from "./view/client-details-edit/client-details-edit.component";
+import {ClientSummaryComponent} from "./view/client-summary/client-summary.component";
+import {CaseSummaryComponent} from "./view/case-summary/case-summary.component";
 
 
 
@@ -55,6 +57,14 @@ const routes: Routes = [
       {
         path: 'templates',
         component: TemplatesComponent
+      },
+      {
+        path: 'clientSummary',
+        component: ClientSummaryComponent
+      },
+      {
+        path: 'caseSummary',
+        component: CaseSummaryComponent
       }
 
     ]

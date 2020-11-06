@@ -35,6 +35,10 @@ export class MainComponent implements OnInit {
       this.headerText = 'View Case';
     } else if (this.router.url == '/main/templates') {
       this.headerText = 'Templates';
+    } else if (this.router.url == '/main/clientSummary') {
+      this.headerText = 'Client Summary';
+    } else if (this.router.url == '/main/caseSummary') {
+      this.headerText = 'Case Summary';
     }
   }
 
@@ -52,6 +56,10 @@ export class MainComponent implements OnInit {
       this.router.navigate(['/main/view-case']);
     } else if (button == 'templates') {
       this.router.navigate(['/main/templates']);
+    } else if (button == 'Client Summary') {
+      this.router.navigate(['/main/clientSummary']);
+    } else if (button == 'Case Summary') {
+      this.router.navigate(['/main/caseSummary']);
     }
 
   }

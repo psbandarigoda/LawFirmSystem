@@ -75,6 +75,36 @@
             <p #templates>templates</p>
           </a>
         </li>
+
+        <li class="nav-item ">
+          <a class="nav-link" data-toggle="collapse" href="#formsExamples2">
+            <i class="fas fa-file-signature"></i>
+            <p> Reports
+              <b class="caret"></b>
+            </p>
+          </a>
+
+          <div class="collapse" id="formsExamples2">
+            <ul class="nav">
+
+              <li (click)="changeRoute(clientSummary.innerHTML)" [ngClass]="{'active': headerText=='Client Summary'}"
+                  class="nav-item">
+                <a class="nav-link">
+                  <i class="fas fa-file-alt"></i>
+                  <p #clientSummary>Client Summary</p>
+                </a>
+              </li>
+              <li (click)="changeRoute(caseSummary.innerHTML)" [ngClass]="{'active': headerText=='Case Summary'}"
+                  class="nav-item">
+                <a class="nav-link">
+                  <i class="fas fa-file-alt"></i>
+                  <p #caseSummary>Case Summary</p>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
         <!--&lt;!&ndash;        <li class="nav-item" [ngClass]="{'active': headerText=='Supplier'}" (click)="changeRoute(sup.innerHTML)">&ndash;&gt;-->
         <!--&lt;!&ndash;          <a class="nav-link">&ndash;&gt;-->
         <!--&lt;!&ndash;            <i class="fas fa-user-friends"></i>&ndash;&gt;-->
