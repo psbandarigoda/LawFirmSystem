@@ -1,6 +1,6 @@
 <div class="container-fluid" style="opacity: 95%">
   <div class="table">
-  <div class="row">
+  <div class="row thead">
     <div class="col-2">NIC</div>
     <div class="col-2">First Name</div>
     <div class="col-2">Last Name</div>
@@ -8,7 +8,7 @@
     <div class="col-2">Mobile</div>
     <div class="col-2">Address</div>
   </div>
-  <div class="row" *ngFor="let client of clients">
+  <div class="row tbody" *ngFor="let client of clients">
     <div class="col-2">{{client.nic}}</div>
     <div class="col-2">{{client.firstName}}</div>
     <div class="col-2">{{client.lastName}}</div>

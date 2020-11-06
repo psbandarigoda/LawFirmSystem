@@ -16,6 +16,7 @@ export class CaseSummaryComponent implements OnInit {
   constructor(private caseService: CaseService, private router: Router) { }
 
   ngOnInit() {
+    this. getAllCases();
   }
 
   getAllCases() {

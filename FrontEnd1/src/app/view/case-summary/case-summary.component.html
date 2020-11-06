@@ -1,1 +1,18 @@
-<p>case-summary works!</p>
+<div class="container-fluid" style="opacity: 95%">
+  <div class="table">
+    <div class="row thead">
+      <div class="col-3">Case No</div>
+      <div class="col-3">Client NIC</div>
+      <div class="col-3">Case Type</div>
+      <div class="col-3">Case Title</div>
+
+    </div>
+    <div class="row tbody" *ngFor="let case of cases">
+      <div class="col-3">{{case.caseNo}}</div>
+      <div class="col-3">{{case.nic}}</div>
+      <div class="col-3">{{case.caseType}}</div>
+      <div class="col-3">{{case.title}}</div>
+
+    </div>
+  </div>
+</div>
