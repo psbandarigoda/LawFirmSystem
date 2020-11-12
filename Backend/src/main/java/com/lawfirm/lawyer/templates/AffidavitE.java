@@ -43,7 +43,7 @@ public class AffidavitE {
         String fileName = "AffidavitEn_" + newDate + "_" + getCurrentTime() + ".pdf";
 
 //        Linux Command
-        File file = new File("/home/pasindu/Downloads/"+cid+"/"+fileName);
+        File file = new File("/home/pasindu/Downloads/LowyerSystem/"+cid+"/"+fileName);
         File file2 = new File("/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+cid+"/"+fileName);
 //        Windows Command
 //        File file = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/LawFirmSystemLetters/"+cid+"/"+fileName);

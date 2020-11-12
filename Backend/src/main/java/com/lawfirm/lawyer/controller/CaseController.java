@@ -50,7 +50,7 @@ public class CaseController {
 
 //      Folder Creation Start
 //      Linux Command
-        String dir = "/home/pasindu/Downloads/"+addCase.getNic()+"/"+addCase.getCaseNo();
+        String dir = "/home/pasindu/Downloads/LowyerSystem/"+addCase.getNic()+"/"+addCase.getCaseNo();
         String dir2 = "/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+addCase.getNic()+"/"+addCase.getCaseNo();
 
 //        Windows Command

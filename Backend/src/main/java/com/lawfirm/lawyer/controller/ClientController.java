@@ -34,7 +34,7 @@ public class ClientController {
     public Map<String, Object> saveUser(@RequestBody Client client) {
 //        Folder Creation Start
 //        Linux Command
-        String dir = "/home/pasindu/Downloads/"+client.getNic();
+        String dir = "/home/pasindu/Downloads/LowyerSystem/"+client.getNic();
         String dir2 = "/home/pasindu/Documents/nCinga/Programming/LawFirmSystem/FrontEnd1/src/assets/data/"+client.getNic();
 //        Windows Command
 //        String dir = "C:\\Users\\ACER\\Documents\\LawFirmSystemImages\\"+client.getNic();
