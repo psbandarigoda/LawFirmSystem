@@ -33,6 +33,19 @@ export class TemplatesComponent implements OnInit {
   affidavitName: string;
   affidavitText: string;
 
+  //Deed of Gift Letter
+  DEEDbeforeRegNo:string;
+  DEEDNumber:string;
+  DEEDRs:string;
+  DEEDExDay:string;
+  DEEDExMonth:string;
+  DEEDExYear:string;
+  DEEDNameOwner:string;
+  DEEDOccupation:string;
+  DEEDNameBuyer:string;
+  DEEDAge:string;
+  DEEDAddress:string;
+
   searchClientDetails: Client = new Client();
 
 
