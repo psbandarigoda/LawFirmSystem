@@ -48,6 +48,10 @@ export class ClientService {
     return this.http.post<Letters>(environment.backend_url + URL + '/printLetterE/', ClientLetter);
   }
 
+  deedLettersE(ClientLetter: Letters) {
+    return this.http.post<Letters>(environment.backend_url + URL + '/deedLettersE/', ClientLetter);
+  }
+
   getAllClients() {
     return this.http.get<Array<Client>>(environment.backend_url + URL + '/getAllClient');
   }

@@ -7,6 +7,7 @@ import com.lawfirm.lawyer.repository.ClientRepository;
 import com.lawfirm.lawyer.repository.LetterLocationRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
 import com.lawfirm.lawyer.templates.AffidavitE;
+import com.lawfirm.lawyer.templates.DeedOFGift;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.aggregation.DateOperators;
 import org.springframework.web.bind.annotation.*;
@@ -153,6 +154,26 @@ public class ClientController {
         location1.setClientID(cid);
         location1.setLetterLocation(File);
         location1.setName("Affidavit_English");
+
+        letterLocationRepository.save(location1);
+        return letter;
+    }
+
+    @PostMapping(value = "/deedLettersE")
+    public Letters deedLettersE(@RequestBody Letters letter) throws IOException {
+        String letterContent = letter.getLetter();
+        String cid = letter.getcID();
+        DeedOFGift l1 = new DeedOFGift();
+        l1.generateTemplatePdf(letterContent,cid);
+
+        String File = l1.fileLocation();
+
+        LetterLocation location1 = new LetterLocation();
+
+        location1.setCaseID("common");
+        location1.setClientID(cid);
+        location1.setLetterLocation(File);
+        location1.setName("DeedOfGift_English");
 
         letterLocationRepository.save(location1);
         return letter;

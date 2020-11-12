@@ -25,11 +25,11 @@
                   Deed of Gift
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#link4" role="tablist">
-                  Deed of Transfer
-                </a>
-              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#link4" role="tablist">-->
+<!--                  Deed of Transfer-->
+<!--                </a>-->
+<!--              </li>-->
             </ul>
             <div class="tab-content tab-space">
 <!--              Link 1 -->
@@ -166,14 +166,17 @@
                     <input [(ngModel)]="DEEDAge" id="years" name="deed" placeholder="No" type="text" >years, residing at, <input [(ngModel)]="DEEDAddress" id="resi_address" name="deed" placeholder="address" type="text" >herein after called the DONOR. 1.<br>
                     red to as the DONEE. 2.
                   </div>
-
+                  <br/>
+                  <div class="col-2">
+                    <button (click)="printDeedEn()" class="btn btn-info pull-right" type="submit">Download</button>
+                  </div>
                   <br/>
                 </div>
 
 <!--             Link 4 -->
-              <div class="tab-pane" id="link4">
+<!--              <div class="tab-pane" id="link4">-->
 
-              </div>
+<!--              </div>-->
 
               </div>
             </div>

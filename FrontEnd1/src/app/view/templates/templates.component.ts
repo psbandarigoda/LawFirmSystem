@@ -34,6 +34,8 @@ export class TemplatesComponent implements OnInit {
   affidavitText: string;
 
   //Deed of Gift Letter
+  DEEDTitle: string;
+  DEEDContent: string;
   DEEDbeforeRegNo:string;
   DEEDNumber:string;
   DEEDRs:string;
@@ -100,7 +102,7 @@ export class TemplatesComponent implements OnInit {
   printAffidavitE() {
     this.affidavitTitle = 'AFFIDAVIT';
     // tslint:disable-next-line:max-line-length
-    this.affidavitLetterContent = '     <h3 style="text-align: center;  font-weight: bold;">AFFIDAVIT</h3>\n' +
+    this.DEEDContent = '     <h3 style="text-align: center;  font-weight: bold;">AFFIDAVIT</h3>\n' +
       '                          <br/>\n' +
       '                          ' + this.affidavitName + '\n' +
       '                          ,belongs to the National Identity Card <br/>\n' +
@@ -122,6 +124,34 @@ export class TemplatesComponent implements OnInit {
     affidavitLetterE.letter= this.affidavitLetterContent;
     affidavitLetterE.cID = this.affidavitNIC;
     this.ClientService.printLettersE(affidavitLetterE).subscribe((result) => {
+      if (result != null) {
+        alert('Letter Print SuccessFully');
+      }
+    });
+  }
+
+
+  printDeedEn(){
+    this.DEEDTitle = 'Deed OF Gift';
+    // tslint:disable-next-line:max-line-length
+    this.affidavitLetterContent = '<div>\n' +
+      '                    Before Registration : '+this.DEEDbeforeRegNo+'\n' +
+      '                    <br/>\n' +
+      '                    Number : '+this.DEEDNumber+'\n' +
+      '                      <br/>\n' +
+      '                    <h3 style="text-align: center;  font-weight: bold;">DEED OF GIFT</h3>\n' +
+      '                    Rs. '+this.DEEDRs+'<br>\n' +
+      '                    This deed of Gift is executed on '+this.DEEDExDay+' day of '+this.DEEDExMonth+' month of\n' +
+      '                    '+this.DEEDExYear+' year by Sri./Smt '+this.DEEDNameOwner+', S/o./<br>\n' +
+      '                    W/o'+this.DEEDNameBuyer+',occupation'+this.DEEDOccupation+', and aged<br>\n' +
+      '                    '+this.DEEDAge+' years, residing at, '+this.DEEDAddress+' herein after called the DONOR. 1.<br>\n' +
+      '                    red to as the DONEE. 2.\n' +
+      '                  </div>';
+
+    let DeedLetterEn = <Letters>{};
+    DeedLetterEn.letter= this.DEEDContent;
+    DeedLetterEn.cID = this.affidavitNIC;
+    this.ClientService.deedLettersE(DeedLetterEn).subscribe((result) => {
       if (result != null) {
         alert('Letter Print SuccessFully');
       }
