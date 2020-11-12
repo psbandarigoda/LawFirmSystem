@@ -130,7 +130,7 @@
                           <br/>
                           <input [(ngModel)]="affidavitName" id="cnameE" name="cnameE" placeholder="Name" type="text">
                           ,belongs to the National Identity Card <br/>
-                          <input [(ngModel)]="affidavitNIC" id="nicE" name="nicE" placeholder="NIC" type="text"> of <input
+                          <input [(ngModel)]="affidavitNIC" (keyup)="searchClientByNIC($event)" id="nicE" name="nicE" placeholder="NIC" type="text"> of <input
                           [(ngModel)]="affidavitAddress" id="addressE" name="addressE" placeholder="Address" type="text">
                           in the republic of Sri Lanka being a Buddhist <br/>do hereby solemnly sincerely and truly declare and affirm as follows,<br/><br/>
                           01.That I am the affirmant above named.<br/>

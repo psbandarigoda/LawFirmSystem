@@ -45,7 +45,7 @@
         <p class="card-description">
           {{aboutCus1}}
         </p>
-        <a class="btn btn-rose btn-round" href="#pablo">Cancel</a>
+        <a class="btn btn-rose btn-round" (click)="restNIC()">Cancel</a>
       </div>
     </div>
   </div>
@@ -79,11 +79,14 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <div class="col-lg-5 col-md-6 col-sm-3">
-                    <select class="" data-size="7" title="Single Select" formControlName="caseType"[(ngModel)]="case.caseType">
-                      <option disabled selected>Case Type</option>
-                      <option value="Curfew Law">Land</option>
-                      <option value="Road Law">Divorce</option>
-                      <option value="Civil Law">Morgage</option>
+                    <label class="bmd-label-floating"> Case Type </label>
+                    <select class="btn" data-size="7" title="Single Select" formControlName="caseType"[(ngModel)]="case.caseType">
+                      <option disabled selected>Select Case</option>
+                      <option value="Land">Land</option>
+                      <option value="Money Matters">MoneyMatters</option>
+                      <option value="Divorce">Divorce</option>
+                      <option value="Defamation">Defamation</option>
+                      <option value="Injunction">Injunction</option>
                     </select>
                   </div>
                 </div>

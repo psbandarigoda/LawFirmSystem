@@ -22,6 +22,7 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
 import { ClientDetailsEditComponent } from './view/client-details-edit/client-details-edit.component';
 import { ClientSummaryComponent } from './view/client-summary/client-summary.component';
 import { CaseSummaryComponent } from './view/case-summary/case-summary.component';
+import { AppointmentSummaryComponent } from './view/appointment-summary/appointment-summary.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -42,7 +43,8 @@ import { CaseSummaryComponent } from './view/case-summary/case-summary.component
     ViewCaseInDetailComponent,
     ClientDetailsEditComponent,
     ClientSummaryComponent,
-    CaseSummaryComponent
+    CaseSummaryComponent,
+    AppointmentSummaryComponent
   ],
   imports: [
     BrowserModule,

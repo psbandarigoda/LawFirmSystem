@@ -22,34 +22,36 @@ public class Client {
     String nic;
     String firstName;
     String lastName;
-    String userName;
+    String nameWithIns;
     String address;
     String phone;
     String email;
     String postal;
     String aboutCus;
     String country;
+    String date;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @CreatedDate
     private Date createdOn;
 
     @LastModifiedDate
     private Date updatedOn;
-
-//    public Client(String id, String nic, String firstName, String lastName, String userName, String address, String phone, String email, String postal, String type, String aboutCus, String country) {
-//        this.id = id;
-//        this.nic = nic;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.userName = userName;
-//        this.address = address;
-//        this.phone = phone;
-//        this.email = email;
-//        this.postal = postal;
-//        this.type = type;
-//        this.aboutCus = aboutCus;
-//        this.country = country;
-//    }
 
     public String getId() {
         return _id;
@@ -84,11 +86,11 @@ public class Client {
     }
 
     public String getUserName() {
-        return userName;
+        return nameWithIns;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.nameWithIns = userName;
     }
 
     public String getAddress() {

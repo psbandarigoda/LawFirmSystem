@@ -52,6 +52,10 @@ export class ClientService {
     return this.http.get<Array<Client>>(environment.backend_url + URL + '/getAllClient');
   }
 
+  getAllClientsByDate(date:Date){
+    return this.http.get<Array<Client>>(environment.backend_url +  URL + '/getAllClientsByDate/' + date);
+  }
+
 
   // init(searchClientNIC: String) {
   //   return this.searchClientDetails(searchClientNIC).subscribe(res => {

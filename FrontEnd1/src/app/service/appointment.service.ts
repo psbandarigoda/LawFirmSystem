@@ -3,6 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Case} from '../model/Case';
 import {Appointment} from "../model/Appointment";
+import {Client} from "../model/Client";
 
 const URL = '/AppointmentController';
 
@@ -27,6 +28,22 @@ export class AppointmentService {
 
   getAllAppointments() {
     return this.http.get<Array<Appointment>>(environment.backend_url + URL + '/getAllAppointments');
+  }
+
+  getAllAppointmentsPending() {
+    return this.http.get<Array<Appointment>>(environment.backend_url + URL + '/getAllAppointments');
+  }
+
+  getAllAppointmentsDone(){
+    return this.http.get<Array<Appointment>>(environment.backend_url + URL + '/getAllAppointmentsDone');
+  }
+
+  getAllAppointmentsByDate(date:Date){
+    return this.http.get<Array<Appointment>>(environment.backend_url + URL + '/getAllAppointmentsByDate/'+date);
+  }
+
+  getPhoneNumber(id:string) {
+    return this.http.get<Client>(environment.backend_url + URL + '/getPhoneNumber/'+id);
   }
 
   updateAppointmentStatus(status: Appointment) {

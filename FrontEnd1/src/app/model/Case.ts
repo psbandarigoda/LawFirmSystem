@@ -6,4 +6,5 @@ export class Case {
   title: string;
   caseType: string;
   description: string;
+  date: string;
 }

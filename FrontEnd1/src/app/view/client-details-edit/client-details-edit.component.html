@@ -68,28 +68,6 @@
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Username</label>
-                    <input [(ngModel)]="clientEdit.userName" [ngClass]="{'is-invalid':formEdit.get('userName').touched && formEdit.get('userName').invalid}"
-                           class="form-control"
-                           formControlName="userName" maxlength="12" minlength="2"
-                           name="userName" type="text"
-                           value="{{userName1}}">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Email address</label>
-                    <input [(ngModel)]="clientEdit.email" [ngClass]="{'is-invalid':formEdit.get('email').touched && formEdit.get('email').invalid }"
-                           class="form-control"
-                           formControlName="email" name="email"
-                           type="email"
-                           value="{{email1}}">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
                     <label class="bmd-label-floating">Fist Name</label>
                     <input [(ngModel)]="clientEdit.firstName" [ngClass]="{'is-invalid':formEdit.get('firstName').touched && formEdit.get('firstName').invalid}"
                            class="form-control"
@@ -98,7 +76,7 @@
                            value="{{firstName1}}">
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label class="bmd-label-floating">Last Name</label>
                     <input [(ngModel)]="clientEdit.lastName" [ngClass]="{'is-invalid':formEdit.get('lastName').touched && formEdit.get('lastName').invalid}"
@@ -106,6 +84,28 @@
                            formControlName="lastName" name="lastName"
                            type="text"
                            value="{{lastName1}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Full Name With Initials</label>
+                    <input [(ngModel)]="clientEdit.nameWithIns" [ngClass]="{'is-invalid':formEdit.get('userName').touched && formEdit.get('userName').invalid}"
+                           class="form-control"
+                           formControlName="userName" minlength="2"
+                           name="userName" type="text"
+                           value="{{nameWithIns1}}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email address</label>
+                    <input [(ngModel)]="clientEdit.email" [ngClass]="{'is-invalid':formEdit.get('email').touched && formEdit.get('email').invalid }"
+                           class="form-control"
+                           formControlName="email" name="email"
+                           type="email"
+                           value="{{email1}}">
                   </div>
                 </div>
               </div>

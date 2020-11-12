@@ -101,6 +101,13 @@
                   <p #caseSummary>Case Summary</p>
                 </a>
               </li>
+              <li (click)="changeRoute(appointmentSummary.innerHTML)" [ngClass]="{'active': headerText=='AppointmentSummary'}"
+                  class="nav-item">
+                <a class="nav-link">
+                  <i class="fas fa-file-alt"></i>
+                  <p #appointmentSummary>Appointment Summary</p>
+                </a>
+              </li>
 
             </ul>
           </div>

@@ -8,10 +8,13 @@ import com.lawfirm.lawyer.repository.LetterLocationRepository;
 import com.lawfirm.lawyer.templates.Affidavit;
 import com.lawfirm.lawyer.templates.AffidavitE;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.aggregation.DateOperators;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +70,15 @@ public class ClientController {
 //        responseMap.put("client", client);
 //        responseMap.put("status", 200);
 //        responseMap.put("message", "success");
+        return client;
+    }
+
+    @GetMapping(value = "/getAllClientsByDate/{date}")
+    public List<Client> getAllClientsByDate(@PathVariable String date) {
+        List<Client> client = clientRepository.getAllClientsByDate(date);
+
+        System.out.println(client);
+
         return client;
     }
 

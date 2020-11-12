@@ -18,4 +18,7 @@ public interface CaseRepository extends MongoRepository<Case, Long> {
     @Query("{ 'caseType' : ?0 }")
     List<Case> findByCaseType(String regexp);
 
+    @Query("{ 'date' : ?0 }")
+    List<Case> getAllCasesByDate(String regexp);
+
 }

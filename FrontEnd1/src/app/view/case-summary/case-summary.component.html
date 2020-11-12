@@ -1,18 +1,50 @@
 <div class="container-fluid" style="opacity: 95%">
+
+  <div class="row filterBar">
+    <div class="col-2">Filter By date</div>
+    <div class="col-4" style="float: left">
+      <label>
+        <input [(ngModel)]="startDate"
+               class="form-control" name="date" type="date" style="color: #0b3452; background-color: white">
+      </label>&nbsp;
+      <input class="btn-sm" type="submit" value="Find" (click)="getAllCasesByDate()"/>
+    </div>
+<!--    <div class="col-2">Find by Status</div>-->
+<!--    <div class="col-4">-->
+<!--      <label>-->
+<!--        <select [(ngModel)]="status" class="dropdown" data-size="7" title="Single Select">-->
+<!--          <option selected value="pending">pending</option>-->
+<!--          <option value="done">done</option>-->
+<!--        </select>&nbsp;-->
+<!--        <input class="btn-sm" style="float: right" type="submit" value="Find" (click)="getAllAppointmentsByStatus()"/>-->
+<!--      </label>-->
+<!--    </div>-->
+  </div>
+
+</div>
+<br/>
+
+
+<div class="container-fluid" style="opacity: 95%">
   <div class="table">
     <div class="row thead">
       <div class="col-3">Case No</div>
       <div class="col-3">Client NIC</div>
       <div class="col-3">Case Type</div>
       <div class="col-3">Case Title</div>
-
     </div>
-    <div class="row tbody" *ngFor="let case of cases">
-      <div class="col-3">{{case.caseNo}}</div>
-      <div class="col-3">{{case.nic}}</div>
-      <div class="col-3">{{case.caseType}}</div>
-      <div class="col-3">{{case.title}}</div>
-
-    </div>
+    <table *ngIf="searchItemValuesIf;else elseBlock" class="container-fluid">
+      <tr class="row alert alert-danger" colspan="8" style="text-align: center">
+        Appointment Not Found
+      </tr>
+    </table>
+    <ng-template #elseBlock>
+      <div *ngFor="let case of cases" class="row tbody">
+        <div class="col-3">{{case.caseNo}}</div>
+        <div class="col-3">{{case.nic}}</div>
+        <div class="col-3">{{case.caseType}}</div>
+        <div class="col-3">{{case.title}}</div>
+      </div>
+    </ng-template>
   </div>
 </div>

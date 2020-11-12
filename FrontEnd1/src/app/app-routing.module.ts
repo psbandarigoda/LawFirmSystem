@@ -13,6 +13,7 @@ import {ViewCaseInDetailComponent} from "./view/view-case-in-detail/view-case-in
 import {ClientDetailsEditComponent} from "./view/client-details-edit/client-details-edit.component";
 import {ClientSummaryComponent} from "./view/client-summary/client-summary.component";
 import {CaseSummaryComponent} from "./view/case-summary/case-summary.component";
+import {AppointmentSummaryComponent} from "./view/appointment-summary/appointment-summary.component";
 
 
 
@@ -65,6 +66,10 @@ const routes: Routes = [
       {
         path: 'caseSummary',
         component: CaseSummaryComponent
+      },
+      {
+        path: 'appointmentSummary',
+        component: AppointmentSummaryComponent
       }
 
     ]

@@ -2,7 +2,9 @@ package com.lawfirm.lawyer.controller;
 
 import com.lawfirm.lawyer.model.Appointment;
 import com.lawfirm.lawyer.model.Case;
+import com.lawfirm.lawyer.model.Client;
 import com.lawfirm.lawyer.repository.AppointmentRepository;
+import com.lawfirm.lawyer.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +24,8 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
+    @Autowired
+    private ClientRepository clientRepository;
 
     @PostMapping(value = "/addAppointments")
     public Map<String, Object> saveAppointment(@RequestBody Appointment addAppointment) {
@@ -42,6 +46,19 @@ public class AppointmentController {
         return appointments;
     }
 
+    @GetMapping(value = "/getAllAppointmentsDone")
+    public List<Appointment> getAllAppointmentsDone() {
+        String done = "done";
+        List<Appointment> appointments = appointmentRepository.findAllDone(done);
+
+        return appointments;
+    }
+
+    @GetMapping(value = "/getPhoneNumber/{id}")
+    public Client getPhoneNumber(@PathVariable String id) {
+        return clientRepository.findByNIC(id);
+    }
+
     @PostMapping(value = "/updateAppointmentStatus")
     public Map<String, Object> updateAppointmentStatus(@RequestBody Appointment updateAppointment) {
         Appointment updateAppointmentStatus = appointmentRepository.save(updateAppointment);
@@ -51,6 +68,15 @@ public class AppointmentController {
         responseMap.put("status", 200);
         responseMap.put("message", "Success");
         return responseMap;
+    }
+
+    @GetMapping(value = "/getAllAppointmentsByDate/{date}")
+    public List<Appointment> getAllAppointmentsByDate(@PathVariable String date) {
+        List<Appointment> client = appointmentRepository.getAllAppointmentsByDate(date);
+
+        System.out.println(client);
+
+        return client;
     }
 
     @GetMapping(value = "/sendMessageToCustomer/{phoneNumber}/{password}/{accountName}/{message}")

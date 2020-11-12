@@ -11,4 +11,12 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Long
 
     @Query("{ 'status' : 'pending' }")
     List<Appointment> findAllPending(String pending);
+
+    @Query("{ 'date' : ?0 }")
+    List<Appointment> getAllAppointmentsByDate(String regexp);
+
+    @Query("{ 'status' : 'done' }")
+    List<Appointment> findAllDone(String done);
+
+
 }

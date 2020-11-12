@@ -12,6 +12,7 @@ export class CaseSummaryComponent implements OnInit {
 
   cases: Case[] = new Array<Case>();
   searchItemValuesIf = true;
+  startDate: Date;
 
   constructor(private caseService: CaseService, private router: Router) { }
 
@@ -29,6 +30,23 @@ export class CaseSummaryComponent implements OnInit {
       }
       console.log(res);
     });
+  }
+
+  getAllCasesByDate() {
+    this.caseService.getAllCasesByDate(this.startDate).subscribe(res => {
+      if (res == null || res.length <= 0) {
+        this.searchItemValuesIf = true;
+      } else {
+        this.searchItemValuesIf = false;
+        this.cases = res;
+      }
+      console.log(res);
+    });
+    //
+    // this.clients.forEach(res =>{
+    //   this.startDate.toISOString()
+    // })
+
   }
 
 }

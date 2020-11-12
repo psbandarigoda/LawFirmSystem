@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Appointment} from "../../model/Appointment";
 import {AppointmentService} from "../../service/appointment.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Client} from "../../model/Client";
 
 
 @Component({
@@ -18,10 +19,13 @@ export class DashboardComponent implements OnInit {
   curDate = new Date();
   appointments: Appointment[] = new Array<Appointment>();
   updateStatusAppoints: Appointment = new Appointment();
+  client: Client = new Client();
   searchItemValuesIf = true;
   nowGoingAppointment = true;
   messageDisplay = 'Event Not Found on This Time';
   messageColour = 'danger';
+  public phoneNumber:string = "";
+  public message:string = "";
 
   addAppointmentData: Appointment = new Appointment();
   form = new FormGroup({
@@ -139,6 +143,9 @@ export class DashboardComponent implements OnInit {
 
           value.status = 'done';
           this.updateStatusAppoints = value;
+          this.getPhoneNumber(value.client);
+          // let message = value.title.replace(" ","+");
+          // console.log("message"+this.phoneNumber);
           this.appointmentService.updateAppointmentStatus(this.updateStatusAppoints).subscribe((result) => {
             if (result != null) {
               console.log('status update success');
@@ -149,11 +156,24 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  sendSMS(){
+  getPhoneNumber(id:string){
+    this.appointmentService.getPhoneNumber(id).subscribe(res => {
+      if (res == null) {
+      } else {
+        this.client = res;
+        this.phoneNumber = this.client.phone;
+        this.sendSMS(this.phoneNumber,"Today+You+have+Appointment+with+your+Lawyer");
+      }
+      console.log(res);
+      console.log("getPhone"+this.phoneNumber);
+    });
+  }
+
+  sendSMS(receiver:string, message:string){
     let phone="94773638063"
     let password="5584"
-    let receiver="94775864592"
-    let message="Test+You+have+meeting"
+    // let receiver="0768361698";
+    // let message="Pasindu+You+have+meeting"
     this.appointmentService.sendSMS(phone,password,receiver,message).subscribe(res => {
       if (res == null) {
       } else {

@@ -16,7 +16,7 @@ export class ClientDetailsEditComponent implements OnInit {
 
   formEdit = new FormGroup({
     nic: new FormControl('', Validators.required),
-    userName: new FormControl('', Validators.required),
+    nameWithIns: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     firstName: new FormControl(' ', Validators.required),
     lastName: new FormControl('', Validators.required),
@@ -33,7 +33,7 @@ export class ClientDetailsEditComponent implements OnInit {
   _id: string;
   firstName1: string;
   lastName1: string;
-  userName1: string;
+  nameWithIns1: string;
   address1: string;
   nic1: string;
   phone1: string;
@@ -77,7 +77,7 @@ export class ClientDetailsEditComponent implements OnInit {
 
           this.firstName1 = this.searchClientDetails.firstName;
           this.lastName1 = this.searchClientDetails.lastName;
-          this.userName1 = this.searchClientDetails.userName;
+          this.nameWithIns1 = this.searchClientDetails.nameWithIns;
           this.address1 = this.searchClientDetails.address;
           this.nic1 = this.searchClientDetails.nic;
           this.phone1 = this.searchClientDetails.phone;
@@ -96,7 +96,7 @@ export class ClientDetailsEditComponent implements OnInit {
     if(this.clientEdit.nic == null){this.clientEdit.nic = this.nic1;}
     if(this.clientEdit.firstName == null){this.clientEdit.firstName = this.firstName1;}
     if(this.clientEdit.lastName == null){this.clientEdit.lastName = this.lastName1;}
-    if(this.clientEdit.userName == null){this.clientEdit.userName = this.userName1;}
+    if(this.clientEdit.nameWithIns == null){this.clientEdit.nameWithIns = this.nameWithIns1;}
     if(this.clientEdit.address == null){this.clientEdit.address = this.address1;}
     if(this.clientEdit.phone == null){this.clientEdit.phone = this.phone1;}
     if(this.clientEdit.email == null){this.clientEdit.email = this.email1;}
@@ -111,7 +111,7 @@ export class ClientDetailsEditComponent implements OnInit {
         alert('Client Details Updated Successfully');
         this.firstName1 = null;
         this.lastName1 = null;
-        this.userName1 = null;
+        this.nameWithIns1 = null;
         this.address1 = null;
         this.nic1 = null;
         this.phone1 = null;

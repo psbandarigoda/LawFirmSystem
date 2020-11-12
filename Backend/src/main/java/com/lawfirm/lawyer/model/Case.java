@@ -24,9 +24,18 @@ public class Case {
     String title;
     String caseType;
     String description;
+    String date;
 
     @CreatedDate
     private Date createdOn;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @LastModifiedDate
     private Date updatedOn;

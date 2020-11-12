@@ -29,6 +29,10 @@ export class CaseService {
     return this.http.get<Array<Case>>(environment.backend_url + URL + '/getAllCases');
   }
 
+  getAllCasesByDate(date:Date) {
+    return this.http.get<Array<Case>>(environment.backend_url + URL + '/getAllCasesByDate/'+date);
+  }
+
   getCasesByNIC(filterNIC:string) {
     return this.http.get<Array<Case>>(environment.backend_url + URL + '/getCasesByNIC/'+filterNIC);
   }

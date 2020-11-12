@@ -3,6 +3,7 @@ import {ClientService} from '../../service/client.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Client} from '../../model/Client';
+import {DatePipe, formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-customer',
@@ -14,10 +15,13 @@ export class ClientDetailsComponent implements OnInit {
 
   client: Client = new Client();
   clientEdit: Client = new Client();
+  myDate: Date = new Date();
+  stringDate :string = this.myDate.toString();
+
   // isValidFormSubmitted: boolean = null;
   form = new FormGroup({
     nic: new FormControl('', Validators.required),
-    userName: new FormControl('', Validators.required),
+    nameWithIns: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     firstName: new FormControl(' ', Validators.required),
     lastName: new FormControl('', Validators.required),
@@ -115,6 +119,11 @@ export class ClientDetailsComponent implements OnInit {
   addClient() {
     // tslint:disable-next-line:prefer-const
     let cust: Client;
+    // this.client.date = this.myDate.toString();
+
+    this.stringDate = formatDate(this.myDate, 'yyyy-MM-dd', 'en-US');
+    this.client.date = this.stringDate;
+
     this.ClientService.addCustomer(this.client).subscribe((result) => {
       if (result != null) {
         alert('Client Added Successfully');

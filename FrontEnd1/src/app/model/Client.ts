@@ -4,11 +4,12 @@ export class Client {
     nic: string;
     firstName: string;
     lastName: string;
-    userName: string;
+    nameWithIns: string;
     address: string;
     phone: string;
     email: string;
     postal: string;
     aboutCus: string;
     country: string;
+    date: string;
 }

@@ -18,7 +18,15 @@
       <div class="col-4">
         <label class="bmd-label-floating" style="color: black">Filter by Case Type : </label>
         <div class="row">
-          <input [(ngModel)]="filterCaseType" class="text-rose">
+<!--          <input [(ngModel)]="filterCaseType" class="text-rose">-->
+          <select class="btn-light" data-size="7" title="Single Select" [(ngModel)]="filterCaseType" style="padding-right: 50px; text-align: center">
+            <option selected disabled>Select Case</option>
+            <option value="Land">Land</option>
+            <option value="Money Matters">MoneyMatters</option>
+            <option value="Divorce">Divorce</option>
+            <option value="Defamation">Defamation</option>
+            <option value="Injunction">Injunction</option>
+          </select>&nbsp;
           <input style="float: right" type="submit" value="Find" (click)="getCasesByCaseType()"/>
         </div>
       </div>

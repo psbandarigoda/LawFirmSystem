@@ -12,6 +12,18 @@ import {Letters} from "../../model/Letters";
 export class TemplatesComponent implements OnInit {
 
   Client: Array<Client> = new Array<Client>();
+  firstName1: string;
+  lastName1: string;
+  nameWithIns1: string;
+  address1: string;
+  nic1: string;
+  phone1: string;
+  email1: string;
+  country1: string;
+  postal1: string;
+  type1: string;
+  aboutCus1: string;
+
 
   // Affidavit Letter
   affidavitTitle: string;
@@ -21,10 +33,35 @@ export class TemplatesComponent implements OnInit {
   affidavitName: string;
   affidavitText: string;
 
-  // tslint:disable-next-line:no-shadowed-variable
-  constructor(private ClientService: ClientService, private route: Router) { }
+  searchClientDetails: Client = new Client();
+
+
+  constructor(private ClientService: ClientService, private route: Router, private clientService: ClientService) { }
 
   ngOnInit() {
+  }
+
+  searchClientByNIC(event: any){
+    if (this.affidavitNIC.length != 0) {
+      this.clientService.searchClientDetails(this.affidavitNIC).subscribe(res => {
+        if (res == null) {
+        } else {
+          this.searchClientDetails = res;
+          alert('Client is there');
+
+          this.affidavitName = this.searchClientDetails.firstName;
+          this.lastName1 = this.searchClientDetails.lastName;
+          this.nameWithIns1 = this.searchClientDetails.nameWithIns;
+          this.affidavitAddress = this.searchClientDetails.address;
+          this.nic1 = this.searchClientDetails.nic;
+          this.phone1 = this.searchClientDetails.phone;
+          this.email1 = this.searchClientDetails.email;
+          this.country1 = this.searchClientDetails.country;
+          this.postal1 = this.searchClientDetails.postal;
+          this.aboutCus1 = this.searchClientDetails.aboutCus;
+        }
+      });
+    }
   }
 
 

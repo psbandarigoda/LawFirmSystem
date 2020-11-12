@@ -87,6 +87,14 @@ public class CaseController {
         return cases;
     }
 
+    @GetMapping(value = "/getAllCasesByDate/{date}")
+    public List<Case> getAllCasesByDate(@PathVariable String date) {
+
+        List<Case> cases = caseRepository.getAllCasesByDate(date);
+
+        return cases;
+    }
+
     @GetMapping(value = "/getCasesByNIC/{nic}")
     public List<Case> getCasesByNIC(@PathVariable String nic) {
 

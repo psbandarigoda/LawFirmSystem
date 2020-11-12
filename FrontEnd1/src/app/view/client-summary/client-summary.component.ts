@@ -11,6 +11,11 @@ export class ClientSummaryComponent implements OnInit {
 
   clients: Client[] = new Array<Client>();
   searchItemValuesIf = true;
+  startDate : Date;
+  endDate : string;
+  myDate = new Date();
+
+  milliseconds :number = this.myDate.getMilliseconds();
 
   constructor(private clientService: ClientService) { }
 
@@ -20,7 +25,7 @@ export class ClientSummaryComponent implements OnInit {
 
   getAllClients() {
     this.clientService.getAllClients().subscribe(res => {
-      if (res == null) {
+      if (res == null || res.length <= 0) {
         this.searchItemValuesIf = true;
       } else {
         this.searchItemValuesIf = false;
@@ -28,6 +33,23 @@ export class ClientSummaryComponent implements OnInit {
       }
       console.log(res);
     });
+  }
+
+  getAllClientsByDate() {
+    this.clientService.getAllClientsByDate(this.startDate).subscribe(res => {
+      if (res == null || res.length <= 0) {
+        this.searchItemValuesIf = true;
+      } else {
+        this.searchItemValuesIf = false;
+        this.clients = res;
+      }
+      console.log(res);
+    });
+    //
+    // this.clients.forEach(res =>{
+    //   this.startDate.toISOString()
+    // })
+
   }
 
 }

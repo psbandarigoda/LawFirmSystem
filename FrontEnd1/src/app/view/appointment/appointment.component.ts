@@ -44,4 +44,15 @@ export class AppointmentComponent implements OnInit {
     });
   }
 
+  addCourtDate(){
+    this.appointment.title = "* Court Date";
+    this.appointmentService.addAppointment(this.appointment).subscribe((result) => {
+      if (result != null) {
+        alert('Appointment Added Successfully');
+        this.appointment = new Appointment();
+        this.formAppointment.reset();
+      }
+    });
+  }
+
 }

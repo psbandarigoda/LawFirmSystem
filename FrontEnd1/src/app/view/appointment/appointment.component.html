@@ -117,7 +117,73 @@
 
               <!--              Link 2 -->
               <div class="tab-pane" id="link2">
-
+                <form [formGroup]="formAppointment" name="formAppointment">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating" hidden> Title </label>
+                        <input [(ngModel)]="appointment.title"
+                               [ngClass]="{'is-invalid':formAppointment.get('title').touched && formAppointment.get('title').invalid}"
+                               class="form-control" formControlName="title" name="title"
+                               type="text" hidden>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating"> Date </label>
+                        <input [(ngModel)]="appointment.date"
+                               [ngClass]="{'is-invalid':formAppointment.get('date').touched && formAppointment.get('date').invalid}"
+                               class="form-control" formControlName="date" maxlength="12"
+                               minlength="2" name="date"
+                               type="date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating"> Time </label>
+                        <input [(ngModel)]="appointment.time"
+                               [ngClass]="{'is-invalid':formAppointment.get('time').touched && formAppointment.get('time').invalid}"
+                               class="form-control" formControlName="time" maxlength="12"
+                               minlength="2" name="time"
+                               type="time">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating"> Venue </label>
+                        <input [(ngModel)]="appointment.venue"
+                               [ngClass]="{'is-invalid':formAppointment.get('venue').touched && formAppointment.get('venue').invalid}"
+                               class="form-control" formControlName="venue" maxlength="12"
+                               minlength="2" name="venue"
+                               type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('caseNo').touched && formAppointment.get('caseNo').invalid}"
+                         class="form-control" formControlName="caseNo" name="caseNo" type="hidden">
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('client').touched && formAppointment.get('client').invalid}"
+                         class="form-control" formControlName="client" name="client" type="hidden">
+                  <input [(ngModel)]="appointment.time"
+                         [ngClass]="{'is-invalid':formAppointment.get('status').touched && formAppointment.get('status').invalid}"
+                         class="form-control" formControlName="status" name="status" value="pending" type="hidden">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div>
+                          <button class="btn btn-info pull-right" type="submit" (click)="addCourtDate()">Add Apppointment</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
 
             </div>

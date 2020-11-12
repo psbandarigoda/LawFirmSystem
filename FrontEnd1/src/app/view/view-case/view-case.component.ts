@@ -14,7 +14,7 @@ export class ViewCaseComponent implements OnInit {
   searchItemValuesIf = true;
   filterNIC: string;
   filterCaseNo: string;
-  filterCaseType: string;
+  filterCaseType: string = 'Select Case';
 
   constructor(private caseService: CaseService, private router: Router) { }
 
@@ -32,7 +32,7 @@ export class ViewCaseComponent implements OnInit {
 
   getAllCases() {
     this.caseService.getAllCases().subscribe(res => {
-      if (res == null) {
+      if (res == null || res.length <= 0) {
         this.searchItemValuesIf = true;
       } else {
         this.searchItemValuesIf = false;
@@ -43,8 +43,10 @@ export class ViewCaseComponent implements OnInit {
   }
 
   getCasesByNIC(){
+    this.filterCaseNo = '';
+    this.filterCaseType = '';
     this.caseService.getCasesByNIC(this.filterNIC).subscribe(res => {
-      if (res == null) {
+      if (res == null || res.length <= 0) {
         this.searchItemValuesIf = true;
       } else {
         this.searchItemValuesIf = false;
@@ -55,8 +57,10 @@ export class ViewCaseComponent implements OnInit {
   }
 
   getCasesByCaseNo(){
+    this.filterNIC = '';
+    this.filterCaseType = '';
     this.caseService.filterCaseNo(this.filterCaseNo).subscribe(res => {
-      if (res == null) {
+      if (res == null || res.length <= 0) {
         this.searchItemValuesIf = true;
       } else {
         this.searchItemValuesIf = false;
@@ -67,8 +71,10 @@ export class ViewCaseComponent implements OnInit {
   }
 
   getCasesByCaseType(){
+    this.filterNIC = '';
+    this.filterCaseNo = '';
     this.caseService.filterCaseType(this.filterCaseType).subscribe(res => {
-      if (res == null) {
+      if (res == null || res.length <= 0) {
         this.searchItemValuesIf = true;
       } else {
         this.searchItemValuesIf = false;

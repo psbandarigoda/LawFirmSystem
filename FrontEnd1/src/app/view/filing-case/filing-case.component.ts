@@ -8,6 +8,7 @@ import {ClientService} from '../../service/client.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Case} from '../../model/Case';
 import {CaseItemImages} from '../../model/CaseItemImages';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-filing-case',
@@ -31,6 +32,10 @@ export class FilingCaseComponent implements OnInit {
 
   searchClientValueIf = true;
   searchClientDetails: Client = new Client();
+  myDate: Date = new Date();
+  stringDate :string = this.myDate.toString();
+
+
   // updateCustomerDetails :Customer = new Customer();
 
   searchClientNIC: any;
@@ -38,7 +43,7 @@ export class FilingCaseComponent implements OnInit {
   _id: string;
   firstName1: string;
   lastName1: string;
-  userName1: string;
+  nameWithIns1: string;
   address1: string;
   nic1: string;
   phone1: string;
@@ -62,6 +67,10 @@ export class FilingCaseComponent implements OnInit {
 
   ngOnInit() {
     this.getAllClients();
+
+    this.stringDate = formatDate(this.myDate, 'yyyy-MM-dd', 'en-US');
+
+    this.case.caseType = 'Select Case';
     // this.imgform = this.formBuilder.group({
     //   title: new FormControl('', Validators.required),
     //   image: new FormControl(' ', Validators.required)
@@ -104,6 +113,14 @@ export class FilingCaseComponent implements OnInit {
     );
   }
 
+  restNIC(){
+    this.searchClientNIC = '';
+    this.nic1 = '';
+    this.firstName1 = '';
+    this.lastName1 = '';
+    this.aboutCus1 = '';
+  }
+
   searchClientByNIC(event: any) {
     if (this.searchClientNIC.length != 0) {
       this.clientService.searchClientDetails(this.searchClientNIC).subscribe(res => {
@@ -118,7 +135,7 @@ export class FilingCaseComponent implements OnInit {
           this._id = this.searchClientDetails._id;
           this.firstName1 = this.searchClientDetails.firstName;
           this.lastName1 = this.searchClientDetails.lastName;
-          this.userName1 = this.searchClientDetails.userName;
+          this.nameWithIns1 = this.searchClientDetails.nameWithIns;
           this.address1 = this.searchClientDetails.address;
           this.nic1 = this.searchClientDetails.nic;
           this.phone1 = this.searchClientDetails.phone;
@@ -134,6 +151,7 @@ export class FilingCaseComponent implements OnInit {
 
   addCase() {
     this.case.nic = this.nic1;
+    this.case.date = this.stringDate;
     // this.case.caseType = this.caseType;
     console.log(this.case);
     this.caseService.addCase(this.case).subscribe((result) => {
